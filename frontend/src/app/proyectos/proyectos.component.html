@@ -1,0 +1,191 @@
+<h2>Proyectos <a [hidden]="!usuarioService.isUser()" routerLink="/proyectos/{{newEncriptado}}" class="btn float-right"
+    style="border-color: black;" style="background-color: lightsteelblue;">Nuevo proyecto</a>
+</h2>
+&nbsp;
+<div class="table-responsive">
+
+  <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+
+  <hr>
+  <nav ngbNav #nav="ngbNav" class="nav-tabs">
+
+    <!-- Comienzo de pestaña Proyectos públicos -->
+    <ng-container ngbNavItem>
+      <a ngbNavLink>Proyectos públicos</a>
+      <ng-template ngbNavContent>
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Descripcion</th>
+              <th>Creador</th>
+              <th>Fecha de carga</th>
+              <th> </th>
+              <th [hidden]="seleccionando"> </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let proyecto of resultsPageProyectosPublicos.results; index as i">
+              <td>{{ (i + 1) + (size * (currentPageProyectosPublicos-1)) }}</td>
+              <td>{{ proyecto.proyecto }}</td>
+              <td>{{ proyecto.descripcion }}</td>
+              <td>{{ proyecto.usuario.username }}</td>
+              <td>
+                {{ proyecto.timegen.getDate() + '/' + (proyecto.timegen.getMonth() +1) + '/' + proyecto.timegen.getFullYear() + " - " + proyecto.timegen.getHours() + ':' + proyecto.timegen.getMinutes() + ':' + proyecto.timegen.getSeconds() }}
+              </td>
+              <td [hidden]="seleccionando" *ngIf="this.idsPublicosEncriptados[i]">
+                <a routerLink="/DatosProyecto/{{this.idsPublicosEncriptados[i]}}/map"><i class="fa fa-map-marker"></i></a>
+              </td>
+              <td [hidden]="seleccionando" *ngIf="this.idsPublicosEncriptados[i]">
+                <a routerLink="/DatosProyecto/{{this.idsPublicosEncriptados[i]}}"><i class="fa fa-table"></i></a>
+              </td>
+              <td [hidden]="!seleccionando">
+                <input type="checkbox" [checked]="SeleccionadosContains(proyecto.id)"
+                  (click)="toggleSeleccionado(proyecto.id)" [hidden]="!seleccionando">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <nav aria-label="Page navigation example" [hidden]="resultsPageProyectosPublicos.count <= 1">
+          <ul class="pagination pagination-centered">
+            <li class="page-item" *ngIf="currentPageProyectosPublicos > 3">
+              <a class="page-link" (click)="showPageProyectosPublicos(-2)">1</a>
+            </li>
+            <li class="page-item" *ngIf="currentPageProyectosPublicos > 4">
+              <a class="page-link" (click)="showPageProyectosPublicos(-1)">...</a>
+            </li>
+            <li *ngFor="let t of pagesProyectosPublicos;"
+              [ngClass]="{true: 'active'}[t+1 === currentPageProyectosPublicos]">
+              <a *ngIf=" t >= ((currentPageProyectosPublicos<= 3) ? 0 : currentPageProyectosPublicos - 3) && t <= ((currentPageProyectosPublicos <= 3) ? 4 : currentPageProyectosPublicos + 1)"
+                class="page-link" (click)="showPageProyectosPublicos(t + 1)"> {{t+1}} </a>
+            </li>
+            <li class="page-item"
+              *ngIf="currentPageProyectosPublicos < resultsPageProyectosPublicos.last - 2 && (!(currentPageProyectosPublicos <3) || currentPageProyectosPublicos + 4 < resultsPageProyectosPublicos.last)">
+              <a class="page-link" (click)="showPageProyectosPublicos(-3)">...</a>
+            </li>
+            <li class="page-item"
+              *ngIf="currentPageProyectosPublicos < resultsPageProyectosPublicos.last - 2 && (!(currentPageProyectosPublicos <3) || currentPageProyectosPublicos + 4 < resultsPageProyectosPublicos.last) ">
+              <a class="page-link" (click)="showPageProyectosPublicos(-4)">{{resultsPageProyectosPublicos.last}}</a>
+            </li>
+          </ul>
+        </nav>
+      </ng-template>
+    </ng-container>
+
+    <!-- Comienzo de pestaña Mis Proyectos -->
+    <ng-container ngbNavItem>
+      <a ngbNavLink>Mis proyectos</a>
+      <ng-template ngbNavContent>
+        <div [hidden]="!currentUser || resultsPageMisProyectos.count == 0">
+          <table class="table table-striped table-sm">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Visibilidad</th>
+                <th>Fecha de carga</th>
+                <th></th>
+                <th [hidden]="seleccionando"></th>
+                <th [hidden]="seleccionando"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let proyecto of resultsPageMisProyectos.results; index as i">
+                <td>{{ (i + 1) + (size * (currentPageMisProyectos-1)) }}</td>
+                <td>{{ proyecto.proyecto }}</td>
+                <td>{{ proyecto.descripcion }}</td>
+                <td>{{ proyecto.visibilidad }}</td>
+                <td>
+                  {{ proyecto.timegen.getDate() + '/' + (proyecto.timegen.getMonth() +1) + '/' + proyecto.timegen.getFullYear() + " - " + proyecto.timegen.getHours() + ':' + proyecto.timegen.getMinutes() + ':' + proyecto.timegen.getSeconds() }}
+                </td>
+                <td [hidden]="!seleccionando">
+                  <input type="checkbox" [checked]="SeleccionadosContains(proyecto.id)"
+                    (click)="toggleSeleccionado(proyecto.id)">
+                </td>
+                <td [hidden]="seleccionando" *ngIf="this.idsPrivadosEncriptados[i]">
+                  <a routerLink="/DatosProyecto/{{this.idsPrivadosEncriptados[i]}}/map"> <i class="fa fa-map-marker" title="Ver en mapa"></i></a>
+                </td>
+
+                <td [hidden]="seleccionando" *ngIf="this.idsPrivadosEncriptados[i]">
+                  <a routerLink="/DatosProyecto/{{this.idsPrivadosEncriptados[i]}}"> <i class="fa fa-table" title="Ver en tabla"> </i></a>
+                </td>
+
+                <td [hidden]="seleccionando" *ngIf="this.idsPrivadosEncriptados[i]">
+                  <a routerLink="/proyectos/{{this.idsPrivadosEncriptados[i]}}"><i class="fa fa-pencil" title="Editar"></i></a>
+                </td>
+
+                <!-- <td [hidden]="seleccionando">
+                  <a routerLink="/proyectos/{{proyecto.id}}"><i class="fa fa-external-link"
+                      title="Obtener link"></i></a>
+                </td> -->
+
+              </tr>
+            </tbody>
+          </table>
+          <nav aria-label="Page navigation example" [hidden]="resultsPageMisProyectos.count <= 1">
+            <ul class="pagination pagination-centered">
+              <li class="page-item" *ngIf="currentPageMisProyectos > 3">
+                <a class="page-link" (click)="showPageMisProyectos(-2)">1</a>
+              </li>
+              <li class="page-item" *ngIf="currentPageMisProyectos > 4">
+                <a class="page-link" (click)="showPageMisProyectos(-1)">...</a>
+              </li>
+              <li *ngFor="let t of pagesMisProyectos;" [ngClass]="{true: 'active'}[t+1 === currentPageMisProyectos]">
+                <a *ngIf=" t >= ((currentPageMisProyectos <= 3) ? 0 : currentPageMisProyectos - 3) && t <= ((currentPageMisProyectos <= 3) ? 4 : currentPageMisProyectos + 1)"
+                  class="page-link" (click)="showPageMisProyectos(t + 1)"> {{t+1}} </a>
+              </li>
+              <li class="page-item"
+                *ngIf="resultsPageMisProyectos.last - 1>currentPageMisProyectos + (currentPageMisProyectos>3 ? 2 : 5 - currentPageMisProyectos)">
+                <a class="page-link" (click)="showPageMisProyectos(-3)">...</a>
+              </li>
+              <li class="page-item"
+                *ngIf="resultsPageMisProyectos.last >currentPageMisProyectos + (currentPageMisProyectos>3 ? 2 : 5 - currentPageMisProyectos)">
+                <a class="page-link" (click)="showPageMisProyectos(-4)">{{resultsPageMisProyectos.last}}</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div [hidden]="currentUser">
+          <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+            <h1 class="display-4">Inicie sesion para poder ver sus proyectos</h1>
+          </div>
+        </div>
+        <div [hidden]="!currentUser || (resultsPageMisProyectos.totalItems >0)">
+          <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+            <h1 class="display-4">Usted no tiene proyectos creados</h1>
+          </div>
+        </div>
+      </ng-template>
+    </ng-container>&nbsp;&nbsp;&nbsp;
+
+    <div ngbDropdown>
+      <button class="btn btn-info btn-sm" id= "size"   ngbDropdownToggle>{{size}}</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownFilter">
+
+        <button ngbDropdownItem id="5" on-click="changeSize(5)">    5   </button>
+        <button ngbDropdownItem id="10" on-click="changeSize(10)">  10  </button>
+        <button ngbDropdownItem id="25" on-click="changeSize(25)">  25  </button>
+        <button ngbDropdownItem id="50" on-click="changeSize(50)">  50  </button>
+
+      </div>
+    </div>
+
+    
+    <div style="text-align: right;width:740px" [hidden]="seleccionando">
+      <button class="btn btn-primary sm-0" (click)="seleccionando = true" type="submit">Ver varios</button>
+    </div>
+
+    <div style="text-align: right;width:680px" [hidden]="!seleccionando">
+      <button class="btn btn-danger sm-0" type="submit"
+        (click)="seleccionando = false; this.error = '';">Cancelar</button>
+    </div>
+    <div style="text-align: right;width:060px" [hidden]="!seleccionando">
+      <button class="btn btn-success sm-0" type="submit" (click)="goToMapProyectos()">Ver</button>
+    </div>
+
+  </nav>
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+  &nbsp;
+</div>

@@ -1,0 +1,84 @@
+.map-wrapper {
+    margin-top: 70px;
+  }
+
+  #capa1 {
+    position: absolute;
+    z-index: 1;
+    top: 35px;
+    right: 10px;
+  }
+
+  #capa1_1 {
+    position: absolute;
+    z-index: 1;
+    top: 100px;
+    left: 10px;    
+  }
+
+  #capa1_2 {
+    position: absolute;
+    z-index: 1;
+    top: 40px;
+    left: 60px;    
+  }
+
+  #capa1_multimedia {
+    position: absolute;
+    z-index: 1;
+    top: 105px;
+    right: 35px;
+  }
+
+  #capa1_velocidad {
+    position: absolute;
+    z-index: 1;
+    top: 150px;
+    right: 153px;
+    
+  }
+
+  #capa2 {
+    z-index: 0;
+  }
+
+  #map {
+    z-index: 0;
+  }
+
+  input[type=range]{
+    width: 17em;
+    height: 2em;
+    display: inline-block;
+  }
+
+  input[type=range]:focus {
+    outline: none;
+  }
+
+  label {
+    position: absolute;
+    z-index: 1;
+    top: 150px;
+    right: 20px; 
+  }
+
+
+
+.btn-default {
+  background:transparent;
+}
+
+#capa3 {
+  position: fixed;
+  z-index: 2;
+  top: 90px;
+  right: 30px;
+}
+
+#filterButton {
+  position: fixed;
+  z-index: 2;
+  bottom: 20px;
+  
+}

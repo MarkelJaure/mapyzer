@@ -1,0 +1,473 @@
+<div
+  *ngIf="proyecto && resultsPageEsquema[0] && resultsPageEsquema[1] && resultsPageEsquema[2] && resultsPageEsquema[3]">
+  <h2>{{"Tabla de datos del proyecto: "}} &nbsp;
+    <a routerLink="/DatosProyecto/{{idEncriptado}}/map"><a class="btn float-right" style="border-color: black;"
+        style="background-color: lightgray;">Ver en Mapa</a></a>
+  </h2>
+  <h4> {{proyecto.proyecto}}</h4>
+  <div class="table-responsive">
+    <hr>
+    <div class="form-row align-items-center">
+      <div class="col-md-3.5 mb-4">
+        <label>Nombre</label>
+        <input [(ngModel)]="nombre" name="lugarNombre" placeholder="Nombre" class="form-control" required />
+      </div>
+      <div class="col-md-3.5 mb-4">
+        <label>Fecha</label>
+        <input class="form-control" [(ngModel)]="fecha" type="datetime-local" max="9999-12-31T23:59" value=""
+          id="example-datetime-local-input">
+
+      </div>
+      <div class="col-auto">
+        <button type="submit" (click)="currentPage = 1;ngOnInit()" class="btn btn-primary">Filtrar</button>
+      </div>
+      <div class="col-auto">
+        <button type="submit" (click)="nombre = ''; fecha = ''; currentPage = 1;ngOnInit()"
+          class="btn btn-danger">Limpiar </button>
+      </div>
+      <div ngbDropdown class="col-auto">
+        <button class="btn float-right" id="dropdownAddData" ngbDropdownToggle
+          [hidden]="!usuarioService.isCreatedByMe(proyecto)"
+          style="background-color: lightsteelblue; margin-right: 0; float: right">Agregar dato
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownExport">
+          <button ngbDropdownItem routerLink="/DatosProyecto/{{idEncriptado}}/esquema1/{{newEncriptado}}">Lugar</button>
+          <button ngbDropdownItem
+            routerLink="/DatosProyecto/{{idEncriptado}}/esquema2/{{newEncriptado}}">Direccion</button>
+          <button ngbDropdownItem routerLink="/DatosProyecto/{{idEncriptado}}/esquema3/{{newEncriptado}}">Zona</button>
+          <button ngbDropdownItem
+            routerLink="/DatosProyecto/{{idEncriptado}}/esquema4/{{newEncriptado}}">Trayecto</button>
+        </div>
+      </div>
+
+      <div class="col-auto">
+        <button class="btn float-right" routerLink="/DatosProyecto/{{idEncriptado}}/upload"
+          [hidden]="!usuarioService.isCreatedByMe(proyecto)"
+          style="background-color: lightsteelblue; margin-right: 0; float: right">Cargar Archivo
+        </button>
+      </div>
+      <div ngbDropdown class="col-auto">
+        <button class="btn float-right" id="dropdownExport" ngbDropdownToggle
+          style="background-color: lightsteelblue; margin-right: 0; float: right">Exportar
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownExport">
+          <button ngbDropdownItem (click)="export('Lugares')">Lugares csv</button>
+          <button ngbDropdownItem (click)="export('LugaresXLS')">Lugares xls</button>
+          <button ngbDropdownItem (click)="export('Direcciones')">Direcciones csv</button>
+          <button ngbDropdownItem (click)="export('DireccionesXLS')">Direcciones xls</button>
+          <button ngbDropdownItem (click)="export('Zonas')">Zonas csv</button>
+          <button ngbDropdownItem (click)="export('ZonasXLS')">Zonas xls</button>
+          <button ngbDropdownItem (click)="export('Trayectos')">Trayectos csv</button>
+          <button ngbDropdownItem (click)="export('TrayectosXLS')">Trayectos xls</button>
+        </div>
+      </div>
+      <div class="col-auto">
+        <button class="btn float-right fa fa-external-link" id="externalLink"
+          style="background-color: lightsteelblue; margin-right: 0; float: right" title="Obtener enlace"
+          [hidden]="!usuarioService.isLoggedIn() || !usuarioService.isCreatedByMe(proyecto)"
+          (click)="getLink(proyecto)">
+        </button>
+      </div>
+    </div>
+    <br>
+    &nbsp;
+
+    <!-- Comienzo de pestañas -->
+    <nav ngbNav #nav="ngbNav" class="nav-tabs">
+
+      <!-- Comienzo de pestaña 1 -->
+      <ng-container ngbNavItem>
+        <a ngbNavLink>Lugares por coordenadas</a>
+        <ng-template ngbNavContent>
+          <table class="table table-striped table-sm">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Tipo Lugar</th>
+                <th>Punto</th>
+                <th>Fecha desde</th>
+                <th>Fecha hasta</th>
+                <th> </th>
+                <th [hidden]="!seleccionandoCopiar">
+                  <input type="checkbox" id="allLugaresCoordenadasToCopySelected"
+                    (change)="this.lugaresCoordenadasMultipleAccionController.toggleAllDataToCopySeleccionados(this.lugares)"
+                    [hidden]="!seleccionandoCopiar"
+                    [checked]="this.lugaresCoordenadasMultipleAccionController.allDataToCopyIsSelected">
+                </th>
+                <th [hidden]="!seleccionandoEliminar">
+                  <input type="checkbox" id="allLugaresCoordenadasToDeleteSelected"
+                    (change)="this.lugaresCoordenadasMultipleAccionController.toggleAllDataToDeleteSeleccionados(this.lugares)"
+                    [hidden]="!seleccionandoEliminar"
+                    [checked]="this.lugaresCoordenadasMultipleAccionController.allDataToDeleteIsSelected">
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let lugar of resultsPageEsquema[0].results; index as i">
+                <td>{{ (i + 1) + (size * (currentPageEsquema[0]-1)) }}</td>
+                <td>{{ lugar.codigo }}</td>
+                <td>{{ lugar.lugar }}</td>
+                <td>{{ lugar.tipos_lugare.tipo_lugar }}</td>
+                <td>{{ lugar.punto.coordinates }}</td>
+                <td *ngIf="lugar.validity[0]">{{ lugar.validity[0].value }}</td>
+                <td *ngIf="lugar.validity[1]">{{lugar.validity[1].value}}</td>
+                <td>
+                  <a routerLink="/DatosProyecto/{{idEncriptado}}/esquema1/{{idLugaresCoordenadasEncriptados[i]}}"><em
+                      class="fa fa-pencil" title="Editar lugar"
+                      [hidden]="!usuarioService.isCreatedByMe(proyecto) || seleccionandoCopiar || seleccionandoEliminar"></em></a>
+                  &nbsp;
+                  <a (click)="removeLugarCoordenadas(lugar)" class="fa fa-remove" title="Remover lugar"
+                    [hidden]="!usuarioService.isCreatedByMe(proyecto) || seleccionandoCopiar || seleccionandoEliminar"></a>
+                </td>
+                <td [hidden]="!seleccionandoCopiar">
+                  <input type="checkbox"
+                    [checked]="this.lugaresCoordenadasMultipleAccionController.dataToCopyContains(lugar.id)"
+                    (change)="this.lugaresCoordenadasMultipleAccionController.toggleDataToCopySeleccionado(lugar.id,this.lugares)"
+                    [hidden]="!seleccionandoCopiar">
+                </td>
+                <td [hidden]="!seleccionandoEliminar">
+                  <input type="checkbox"
+                    [checked]="this.lugaresCoordenadasMultipleAccionController.dataToDeleteContains(lugar.id)"
+                    (change)="this.lugaresCoordenadasMultipleAccionController.toggleDataToDeleteSeleccionado(lugar.id,this.lugares)"
+                    [hidden]="!seleccionandoEliminar">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <nav aria-label="Page navigation example" [hidden]="resultsPageEsquema[0].count <= 1">
+            <ul class="pagination pagination-centered">
+              <li class="page-item" *ngIf="currentPageEsquema[0] > 3">
+                <a class="page-link" (click)="showPageEsquema(-2,0)">1</a>
+              </li>
+              <li class="page-item" *ngIf="currentPageEsquema[0] > 4">
+                <a class="page-link" (click)="showPageEsquema(-1,0)">...</a>
+              </li>
+              <li *ngFor="let t of pagesEsquema[0];" [ngClass]="{true: 'active'}[t+1 === currentPageEsquema[0]]">
+                <a *ngIf=" t >= ((currentPageEsquema[0] <= 3) ? 0 :  currentPageEsquema[0] - 3) && t <= ((currentPageEsquema[0] <= 3) ? 4:  currentPageEsquema[0] + 1)"
+                  class="page-link" (click)="showPageEsquema(t + 1,0)"> {{t+1}} </a>
+              </li>
+              <li class="page-item"
+                *ngIf="resultsPageEsquema[0].last - 1>currentPageEsquema[0] + (currentPageEsquema[0]>3 ? 2 : 5 - currentPageEsquema[0])">
+                <a class="page-link" (click)="showPageEsquema(-3,0)">...</a>
+              </li>
+              <li class="page-item"
+                *ngIf="resultsPageEsquema[0].last >currentPageEsquema[0] + (currentPageEsquema[0]>3 ? 2 : 5 - currentPageEsquema[0])">
+                <a class="page-link" (click)="showPageEsquema(-4,0)">{{resultsPageEsquema[0].last}}</a>
+              </li>
+            </ul>
+          </nav>
+        </ng-template>
+      </ng-container>
+
+      <!-- Comienzo de pestaña 2 -->
+      <ng-container ngbNavItem>
+        <a ngbNavLink>Lugares por dirección</a>
+        <ng-template ngbNavContent>
+          <table class="table table-striped table-sm">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Tipo lugar</th>
+                <th>Calle y altura</th>
+                <th>Ciudad</th>
+                <th>Fecha desde</th>
+                <th>Fecha hasta</th>
+                <th> </th>
+                <th [hidden]="!seleccionandoCopiar"><input type="checkbox" id="allLugaresDireccionToCopySelected"
+                    (change)="this.lugaresDireccionesMultipleAccionController.toggleAllDataToCopySeleccionados(this.direcciones)"
+                    [hidden]="!seleccionandoCopiar"
+                    [checked]="this.lugaresDireccionesMultipleAccionController.allDataToCopyIsSelected">
+                </th>
+                <th [hidden]="!seleccionandoEliminar"><input type="checkbox" id="allLugaresDireccionToDeleteSelected"
+                    (change)="this.lugaresDireccionesMultipleAccionController.toggleAllDataToDeleteSeleccionados(this.direcciones)"
+                    [hidden]="!seleccionandoEliminar"
+                    [checked]="this.lugaresDireccionesMultipleAccionController.allDataToDeleteIsSelected">
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let lugar of resultsPageEsquema[1].results; index as i">
+                <td>{{ (i + 1) + (size * (currentPageEsquema[1]-1)) }}</td>
+                <td>{{ lugar.codigo }}</td>
+                <td>{{ lugar.lugar }}</td>
+                <td>{{ lugar.tipos_lugare.tipo_lugar }}</td>
+                <td>{{calle[i]}}</td>
+                <td>{{ciudad[i]}}</td>
+                <td *ngIf="lugar.validity[0]">{{ lugar.validity[0].value }}</td>
+                <td *ngIf="lugar.validity[1]">{{lugar.validity[1].value}}</td>
+                <td>
+                  <a routerLink="/DatosProyecto/{{idEncriptado}}/esquema2/{{idLugaresDireccionesEncriptados[i]}}"><em
+                      class="fa fa-pencil" title="Editar lugar"
+                      [hidden]="!usuarioService.isCreatedByMe(proyecto) || seleccionandoCopiar || seleccionandoEliminar"></em></a>
+                  &nbsp;
+                  <a (click)=" removeLugarDireccion(lugar)" class="fa fa-remove" title="Remover lugar"
+                    [hidden]="!usuarioService.isCreatedByMe(proyecto) || seleccionandoCopiar || seleccionandoEliminar"></a>
+                </td>
+                <td [hidden]="!seleccionandoCopiar">
+                  <input type="checkbox"
+                    [checked]="this.lugaresDireccionesMultipleAccionController.dataToCopyContains(lugar.id)"
+                    (change)="this.lugaresDireccionesMultipleAccionController.toggleDataToCopySeleccionado(lugar.id,this.direcciones)"
+                    [hidden]="!seleccionandoCopiar">
+                </td>
+                <td [hidden]="!seleccionandoEliminar">
+                  <input type="checkbox"
+                    [checked]="this.lugaresDireccionesMultipleAccionController.dataToDeleteContains(lugar.id)"
+                    (change)="this.lugaresDireccionesMultipleAccionController.toggleDataToDeleteSeleccionado(lugar.id,this.direcciones)"
+                    [hidden]="!seleccionandoEliminar">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <nav aria-label="Page navigation example" [hidden]="resultsPageEsquema[1].count <= 1">
+            <ul class="pagination pagination-centered">
+              <li class="page-item" *ngIf="currentPageEsquema[1] > 3">
+                <a class="page-link" (click)="showPageEsquema(-2,1)">1</a>
+              </li>
+              <li class="page-item" *ngIf="currentPageEsquema[1] > 4">
+                <a class="page-link" (click)="showPageEsquema(-1,1)">...</a>
+              </li>
+              <li *ngFor="let t of pagesEsquema[1];" [ngClass]="{true: 'active'}[t+1 === currentPageEsquema[1]]">
+                <a *ngIf=" t >= ((currentPageEsquema[1] <= 3) ? 0 :  currentPageEsquema[1] - 3) && t <= ((currentPageEsquema[1] <= 3) ? 4:  currentPageEsquema[1] + 1)"
+                  class="page-link" (click)="showPageEsquema(t + 1,1)"> {{t+1}} </a>
+              </li>
+              <li class="page-item"
+                *ngIf="resultsPageEsquema[1].last - 1>currentPageEsquema[1] + (currentPageEsquema[1]>3 ? 2 : 5 - currentPageEsquema[1])">
+                <a class="page-link" (click)="showPageEsquema(-3,1)">...</a>
+              </li>
+              <li class="page-item"
+                *ngIf="resultsPageEsquema[1].last >currentPageEsquema[1] + (currentPageEsquema[1]>3 ? 2 : 5 - currentPageEsquema[1])">
+                <a class="page-link" (click)="showPageEsquema(-4,1)">{{resultsPageEsquema[1].last}}</a>
+              </li>
+            </ul>
+          </nav>
+        </ng-template>
+      </ng-container>
+
+      <!-- Comienzo de pestaña 3 -->
+      <ng-container ngbNavItem>
+        <a ngbNavLink>Zonas</a>
+        <ng-template ngbNavContent>
+          <table class="table table-striped table-sm">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Tipo Zona</th>
+                <th>Fecha desde</th>
+                <th>Fecha hasta</th>
+                <th></th>
+                <th [hidden]="!seleccionandoCopiar"><input type="checkbox" id="allZonasToCopySelected"
+                    (change)="this.zonasMultipleAccionController.toggleAllDataToCopySeleccionados(this.zonas)"
+                    [hidden]="!seleccionandoCopiar"
+                    [checked]="this.zonasMultipleAccionController.allDataToCopyIsSelected">
+                </th>
+                <th [hidden]="!seleccionandoEliminar"><input type="checkbox" id="allZonasToDeleteSelected"
+                    (change)="this.zonasMultipleAccionController.toggleAllDataToDeleteSeleccionados(this.zonas)"
+                    [hidden]="!seleccionandoEliminar"
+                    [checked]="this.zonasMultipleAccionController.allDataToDeleteIsSelected">
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let zona of resultsPageEsquema[2].results; index as i">
+                <td>{{ (i + 1) + (size * (currentPageEsquema[2]-1)) }}</td>
+                <td>{{ zona.codigo }}</td>
+                <td>{{ zona.zona }}</td>
+                <td>{{ zona.tipos_zona.tipo_zona }}</td>
+                <td *ngIf="zona.validity[0]">{{ zona.validity[0].value }}</td>
+                <td *ngIf="zona.validity[1]">{{ zona.validity[1].value}}</td>
+                <td>
+                  <a routerLink="/DatosProyecto/{{idEncriptado}}/esquema3/{{idZonasEncriptados[i]}}"><em
+                      class="fa fa-pencil" title="Editar zona"
+                      [hidden]="!usuarioService.isCreatedByMe(proyecto) || seleccionandoCopiar || seleccionandoEliminar"></em></a>
+                  &nbsp;
+                  <a (click)=" removeZona(zona)" class="fa fa-remove" title="Remover zona"
+                    [hidden]="!usuarioService.isCreatedByMe(proyecto) || seleccionandoCopiar || seleccionandoEliminar"></a>
+                </td>
+                <td [hidden]="!seleccionandoCopiar">
+                  <input type="checkbox" [checked]="this.zonasMultipleAccionController.dataToCopyContains(zona.id)"
+                    (change)="this.zonasMultipleAccionController.toggleDataToCopySeleccionado(zona.id,this.zonas)"
+                    [hidden]="!seleccionandoCopiar">
+                </td>
+                <td [hidden]="!seleccionandoEliminar">
+                  <input type="checkbox" [checked]="this.zonasMultipleAccionController.dataToDeleteContains(zona.id)"
+                    (change)="this.zonasMultipleAccionController.toggleDataToDeleteSeleccionado(zona.id,this.zonas)"
+                    [hidden]="!seleccionandoEliminar">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <nav aria-label="Page navigation example" [hidden]="resultsPageEsquema[2].count <= 1">
+            <ul class="pagination pagination-centered">
+              <li class="page-item" *ngIf="currentPageEsquema[2] > 3">
+                <a class="page-link" (click)="showPageEsquema(-2,2)">1</a>
+              </li>
+              <li class="page-item" *ngIf="currentPageEsquema[2] > 4">
+                <a class="page-link" (click)="showPageEsquema(-1,2)">...</a>
+              </li>
+              <li *ngFor="let t of pagesEsquema[2];" [ngClass]="{true: 'active'}[t+1 === currentPageEsquema[2]]">
+                <a *ngIf=" t >= ((currentPageEsquema[2] <= 3) ? 0 :  currentPageEsquema[2] - 3) && t <= ((currentPageEsquema[2] <= 3) ? 4:  currentPageEsquema[2] + 1)"
+                  class="page-link" (click)="showPageEsquema(t + 1,2)"> {{t+1}} </a>
+              </li>
+              <li class="page-item"
+                *ngIf="resultsPageEsquema[2].last - 1>currentPageEsquema[2] + (currentPageEsquema[2]>3 ? 2 : 5 - currentPageEsquema[2])">
+                <a class="page-link" (click)="showPageEsquema(-3,2)">...</a>
+              </li>
+              <li class="page-item"
+                *ngIf="resultsPageEsquema[2].last >currentPageEsquema[2] + (currentPageEsquema[2]>3 ? 2 : 5 - currentPageEsquema[2])">
+                <a class="page-link" (click)="showPageEsquema(-4,2)">{{resultsPageEsquema[2].last}}</a>
+              </li>
+            </ul>
+          </nav>
+        </ng-template>
+      </ng-container>
+
+      <!-- Comienzo de pestaña 4 -->
+      <ng-container ngbNavItem>
+        <a ngbNavLink>Trayectos</a>
+        <ng-template ngbNavContent>
+          <table class="table table-striped table-sm">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Tipo Trayecto</th>
+                <th>Fecha desde</th>
+                <th>Fecha hasta</th>
+                <th></th>
+                <th [hidden]="!seleccionandoCopiar"><input type="checkbox" id="allTrayectosToCopySelected"
+                    (change)="this.trayectosMultipleAccionController.toggleAllDataToCopySeleccionados(this.trayectos)"
+                    [hidden]="!seleccionandoCopiar"
+                    [checked]="this.trayectosMultipleAccionController.allDataToCopyIsSelected">
+                </th>
+                <th [hidden]="!seleccionandoEliminar"><input type="checkbox" id="allTrayectosToDeleteSelected"
+                    (change)="this.trayectosMultipleAccionController.toggleAllDataToDeleteSeleccionados(this.trayectos)"
+                    [hidden]="!seleccionandoEliminar"
+                    [checked]="this.trayectosMultipleAccionController.allDataToDeleteIsSelected">
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let trayecto of resultsPageEsquema[3].results; index as i">
+                <td>{{ (i + 1) + (size * (currentPageEsquema[3]-1)) }}</td>
+                <td>{{ trayecto.codigo }}</td>
+                <td>{{ trayecto.trayecto }}</td>
+                <td>{{ trayecto.tipos_trayecto.tipo_trayecto }}</td>
+                <td *ngIf="trayecto.validity[0]">{{ trayecto.validity[0].value }}</td>
+                <td *ngIf="trayecto.validity[1]">{{ trayecto.validity[1].value}}</td>
+                <td>
+                  <a routerLink="/DatosProyecto/{{idEncriptado}}/esquema4/{{idTrayectosEncriptados[i]}}"
+                    title="Editar trayecto"
+                    [hidden]="!usuarioService.isCreatedByMe(proyecto) || seleccionandoCopiar || seleccionandoEliminar"><em
+                      class="fa fa-pencil"></em></a>
+                  &nbsp;
+                  <a (click)=" removeTrayecto(trayecto)" class="fa fa-remove" title="Remover trayecto"
+                    [hidden]="!usuarioService.isCreatedByMe(proyecto) || seleccionandoCopiar || seleccionandoEliminar"></a>
+                </td>
+                <td [hidden]="!seleccionandoCopiar">
+                  <input type="checkbox"
+                    [checked]="this.trayectosMultipleAccionController.dataToCopyContains(trayecto.id)"
+                    (change)="this.trayectosMultipleAccionController.toggleDataToCopySeleccionado(trayecto.id,this.trayectos)"
+                    [hidden]="!seleccionandoCopiar">
+                </td>
+                <td [hidden]="!seleccionandoEliminar">
+                  <input type="checkbox"
+                    [checked]="this.trayectosMultipleAccionController.dataToDeleteContains(trayecto.id)"
+                    (change)="this.trayectosMultipleAccionController.toggleDataToDeleteSeleccionado(trayecto.id,this.trayectos)"
+                    [hidden]="!seleccionandoEliminar">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <nav aria-label="Page navigation example" [hidden]="resultsPageEsquema[3].count <= 1">
+            <ul class="pagination pagination-centered">
+              <li class="page-item" *ngIf="currentPageEsquema[3] > 3">
+                <a class="page-link" (click)="showPageEsquema(-2,3)">1</a>
+              </li>
+              <li class="page-item" *ngIf="currentPageEsquema[3] > 4">
+                <a class="page-link" (click)="showPageEsquema(-1,3)">...</a>
+              </li>
+              <li *ngFor="let t of pagesEsquema[3];" [ngClass]="{true: 'active'}[t+1 === currentPageEsquema[3]]">
+                <a *ngIf=" t >= ((currentPageEsquema[3] <= 3) ? 0 :  currentPageEsquema[3] - 3) && t <= ((currentPageEsquema[3] <= 3) ? 4:  currentPageEsquema[3] + 1)"
+                  class="page-link" (click)="showPageEsquema(t + 1,3)"> {{t+1}} </a>
+              <li class="page-item"
+                *ngIf="resultsPageEsquema[3].last - 1>currentPageEsquema[3] + (currentPageEsquema[3]>3 ? 2 : 5 - currentPageEsquema[3])">
+                <a class="page-link" (click)="showPageEsquema(-3,3)">...</a>
+              </li>
+              <li class="page-item"
+                *ngIf="resultsPageEsquema[3].last >currentPageEsquema[3] + (currentPageEsquema[3]>3 ? 2 : 5 - currentPageEsquema[3])">
+                <a class="page-link" (click)="showPageEsquema(-4,3)">{{resultsPageEsquema[3].last}}</a>
+              </li>
+            </ul>
+          </nav>
+        </ng-template>
+      </ng-container>&nbsp;&nbsp;&nbsp;
+
+      <div ngbDropdown>
+        <button class="btn btn-info btn-sm" id="size" ngbDropdownToggle>{{size}}</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownFilter">
+
+          <button ngbDropdownItem id="5" on-click="changeSize(5)"> 5 </button>
+          <button ngbDropdownItem id="10" on-click="changeSize(10)"> 10 </button>
+          <button ngbDropdownItem id="25" on-click="changeSize(25)"> 25 </button>
+          <button ngbDropdownItem id="50" on-click="changeSize(50)"> 50 </button>
+
+        </div>
+      </div>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+      <div style="margin-right: 0; float: right">
+        <button class="btn" id="copyData" style="background-color: lightsteelblue"
+          [hidden]="!usuarioService.isLoggedIn() || seleccionandoCopiar || seleccionandoEliminar" (click)="seleccionandoCopiar = true">Copiar
+        </button>
+      </div>
+      &nbsp;
+      <div style="margin-right: 0; float: right">
+        <button class="btn" style="background-color: lightsteelblue"
+          [hidden]="!usuarioService.isLoggedIn() || seleccionandoCopiar || seleccionandoEliminar"
+          (click)="seleccionandoEliminar = true">Eliminar</button>
+      </div>
+
+
+      <div style="margin-right: 0; float: right" [hidden]="!seleccionandoCopiar">
+        <button class="btn btn-danger sm-0" type="submit"
+          (click)="seleccionandoCopiar = false; this.error = '';">Cancelar</button>
+      </div>
+      &nbsp;
+
+      <div ngbDropdown placement="bottom-right" style="margin-right: 0; float: right" [hidden]="!seleccionandoCopiar">
+        <button class="btn btn-success sm-0" id="dropdownCopyData" ngbDropdownToggle>Copiar a
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownCopyData">
+          <tr *ngFor="let miProyecto of misProyectos; index as i">
+            <button ngbDropdownItem (click)="addData(miProyecto.id)">{{miProyecto.proyecto}}</button>
+          </tr>
+        </div>
+      </div>
+
+
+      <div style="margin-right: 0; float: right" [hidden]="!seleccionandoEliminar">
+        <button class="btn btn-danger sm-0" type="submit"
+          (click)="seleccionandoEliminar = false; this.error = '';">Cancelar</button>
+      </div>
+      &nbsp;
+
+      <div style="margin-right: 0; float: right" [hidden]="!seleccionandoEliminar">
+        <button class="btn btn-danger sm-0" type="submit"
+          (click)="deleteData()">Eliminar</button>
+      </div>
+
+    </nav>
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+    <button (click)="goBack()" class="btn" style="border-color: black;" style="background-color: grey;">Atrás</button>
+    &nbsp;
+  </div>
+
+</div>

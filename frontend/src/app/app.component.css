@@ -1,0 +1,29 @@
+.title {
+  font-family: sans-serif;
+  font-size: 45px;
+  text-align: center;
+}
+.boton1 {
+  background-color: #4caf50; /* Green */
+  border: 2px solid #000a01; /* Green */
+  color: white;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+img {
+  width: 50%;
+  height: auto;
+  opacity: 0.9;
+  border-radius: 8px;
+}
+
+#clickeable {
+  cursor: pointer
+}
+
+

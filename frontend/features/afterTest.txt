@@ -1,0 +1,10 @@
+delete from proyectos_zonas where id_zona =(select id_zona from proyectos_zonas, zonas where proyectos_zonas.id_zona= zonas.id and zonas.codigo= '1234');
+delete from zonas where codigo = '1234';
+delete from proyectos_lugares where id_lugar =(select id_lugar from proyectos_lugares, lugares where proyectos_lugares.id_lugar= lugares.id and lugares.codigo= '1234');
+delete from lugares where codigo = '1234';
+delete from proyectos_trayectos where id_trayecto =(select id_trayecto from proyectos_trayectos, trayectos where proyectos_trayectos.id_trayecto= trayectos.id and trayectos.codigo= '1234');
+delete from trayectos where codigo = '1234';
+delete from proyectos_trayectos where id_trayecto =(select id_trayecto from proyectos_trayectos, trayectos where proyectos_trayectos.id_trayecto= trayectos.id and trayectos.codigo= '1234');
+delete from trayectos where codigo = '1234';
+
+-- Comandos SQL para ejecutar despues de realizar npm test

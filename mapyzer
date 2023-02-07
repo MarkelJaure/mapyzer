@@ -1,0 +1,21 @@
+#!/bin/bash
+
+case "$1" in
+  build  ) echo "Instalando servicios y configuraciones.."
+       docker-compose build 
+       ;;
+  up  ) echo "Levantando servidores en primer plano.."
+       docker-compose up 
+       ;;
+  stop ) echo "Deteniendo servidores.."
+       docker-compose stop
+       ;;
+  down ) echo "Destruyendo servidores.."
+       docker-compose down
+       ;;
+  bash ) echo "Conectando con $2"
+     docker exec -it $2 bash
+     ;;
+  * ) echo "Opción inválida."
+      ;;
+esac

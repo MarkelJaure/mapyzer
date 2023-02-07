@@ -1,0 +1,112 @@
+<div *ngIf="trayecto">
+    <h2>Detalles trayecto</h2>
+    <h3>Ingrese los datos del trayecto</h3>
+    <form novalidate [formGroup]="createForm">
+        <div class="form-group">
+            <label>Código:*</label>
+            <input type="text" [(ngModel)]="trayecto.codigo" autocomplete="off" placeholder="Código" class="form-control"
+                formControlName="codigoVal" />
+        </div>
+
+        <div class="form-group">
+            <label>Nombre:*</label>
+            <input type="text" [(ngModel)]="trayecto.trayecto" autocomplete="off" placeholder="Nombre" class="form-control"
+                formControlName="nombreVal" />
+        </div>
+
+        <div class="form-group">
+            <label>Descripción:</label>
+            <input type="text" [(ngModel)]="trayecto.descripcion" placeholder="Descripción" class="form-control"
+                formControlName="descripcionVal" />
+        </div>
+
+        <div class="form-row">
+
+            <div class="form-group col">
+                <label>Tipo trayecto:*</label>
+                <input type="text" placeholder="TipoTrayecto" formControlName="tipoTrayectoVal" class="form-control"
+                    [(ngModel)]="trayecto.tipos_trayecto" [ngbTypeahead]="searchTipoTrayecto"
+                    [resultFormatter]="resultTipoTrayectoFormat" [inputFormatter]="inputTipoTrayectoFormat"
+                    [editable]="false" />
+            </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col">
+            <label>Fecha desde:</label>
+            <div class="input-group">
+              <input class="form-control" [(ngModel)]="desde" step="60" type="datetime-local" [max]="hasta < '9999-12-31T23:59' ? hasta : '9999-12-31T23:59'" max =  '9999-12-31T23:59'
+                value="" formControlName="desdeVal" id="example-datetime-local-input">
+              <button class="btn btn-secondary btn-sm m-2 float-right" (click)="desde = null;">
+                Limpiar
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group col">
+            <label>Fecha hasta:</label>
+            <div class="input-group">
+              <input class="form-control" [(ngModel)]="hasta" type="datetime-local" max="9999-12-31T23:59" [min]="desde"
+                value="" formControlName="hastaVal" id="example-datetime-local-input">
+              <button class="btn btn-secondary btn-sm m-2 float-right" (click)="hasta = null; ">
+                Limpiar
+              </button>
+            </div>
+          </div>
+        </div>
+
+          <form class="container was-validated" novalidate="">
+            <div class="table-responsive">
+              <table class="table table-striped table-sm">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Latitud</th>
+                    <th>Longitud</th>
+                    <th>
+                      <button (click)="addCoordenada()" class="btn btn-success">Agregar Coordenada</button></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let coordenada of trayecto.curva.coordinates; index as i">
+                    <td>{{ i + 1 }}</td>
+                    <td><input name="coordenadaLatitud{{i}}" type="number" step="any" min="-90" max="90"[(ngModel)]="trayecto.curva.coordinates[i][0]" placeholder="Latitud" class="form-control" required>
+                      <div class="valid-feedback"></div>
+                      <div class="invalid-feedback">Ingrese una latitud entre -90 y 90</div></td>
+
+                    <td><input name="coordenadaLongitud{{i}}" type="number" step="any"min="-180" max="180" [(ngModel)]="trayecto.curva.coordinates[i][1]"placeholder="Longitud" class="form-control"required>
+                      <div class="valid-feedback"></div>
+                      <div class="invalid-feedback">Ingrese una longitud entre -180 y 180</div></td>
+                    <td>
+                      <button (click)="removeCoordenada(coordenada)"  class="btn btn-default">
+                        <i class="fa fa-remove"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            </form>
+
+
+            <div *ngIf="error"><hr> </div>
+            <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error.error.message}}</div> 
+            <div *ngIf="error"><hr> </div> 
+
+        <div>
+            <button (click)="goBack()" class="btn" style="border-color: black;"
+                    style="background-color: lightsteelblue;">Atrás
+            </button>
+            &nbsp;
+            <button (click)="onSubmit()" class="btn btn-primary mr-1"
+                    style="border-color: black; background-color: gray;">
+              Guardar
+            </button>
+          </div>
+    </form>
+
+    <p>(*) Campos obligatorios.</p>
+
+    <!-- <app-toasts aria-live="polite" aria-atomic="true"></app-toasts> -->
+</div>

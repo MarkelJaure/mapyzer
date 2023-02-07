@@ -1,0 +1,5 @@
+.col-md-3 > button{ 
+    height: 55px;
+    width: 115px;    
+    justify-items: center;
+}

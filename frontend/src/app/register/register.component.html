@@ -1,0 +1,97 @@
+<div class="col-md-6 offset-md-3 mt-5">
+    <div class="card">
+        <h3 class="card-header">Registrarse</h3>
+        <div class="card-body">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label>Nombre de usuario</label>
+                    <input type="text" formControlName="usernameVal" class="form-control" [(ngModel)]="usuario.username"
+                        [ngClass]="{ 'is-invalid': submitted && f.usernameVal.errors }" />
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" formControlName="emailVal" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" [(ngModel)]="usuario.email"
+                        [ngClass]="{ 'is-invalid': submitted && f.emailVal.errors }" />
+                </div>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label>Contraseña</label>
+                        <input type="password" formControlName="passwordVal" class="form-control" [(ngModel)]="usuario.password"
+                            [ngClass]="{ 'is-invalid': submitted && f.passwordVal.errors }" />
+                    </div>
+                    <div class="form-group col">
+                        <label>Confirme la contraseña</label>
+                        <input type="password" formControlName="confirmPasswordVal" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.confirmPasswordVal.errors }" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label>Nombre/s</label>
+                        <input type="text" formControlName="nameVal" class="form-control" [(ngModel)]="usuario.persona.name"
+                            [ngClass]="{ 'is-invalid': submitted && f.nameVal.errors }" />
+                    </div>
+                    <div class="form-group col">
+                        <label>Apellido/s</label>
+                        <input type="text" formControlName="lastNameVal" class="form-control" [(ngModel)]="usuario.persona.lastname"
+                            [ngClass]="{ 'is-invalid': submitted && f.lastNameVal.errors }" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label>DNI</label>
+                        <input type="number" formControlName="dniVal" class="form-control" [(ngModel)]="usuario.persona.dni"
+                            [ngClass]="{ 'is-invalid': submitted && f.dniVal.errors }" />
+                    </div>
+                    <div class="form-group col">
+                        <label>Telefono</label>
+                        <input type="number" formControlName="telefonoVal" class="form-control" [(ngModel)]="usuario.persona.telefono"
+                            [ngClass]="{ 'is-invalid': submitted && f.telefonoVal.errors }" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label>Ambito Laboral</label>
+                        <select class="form-control" formControlName="ambitoVal" placeholder="Seleccionar" [ngClass]="{ 'is-invalid': submitted && f.ambitoVal.errors }" [(ngModel)]="usuario.persona.ambito" >
+                            <option value="comercio">Comercio</option>
+                            <option value="comunicacion">Comunicacion</option>
+                            <option value="educacion">Educacion</option>
+                            <option value="finanzas">Finanzas</option>
+                            <option value="industria">Industria</option>
+                            <option value="salud">Salud</option>
+                            <option value="seguridad">Seguridad</option>
+                            <option value="transporte">Transporte</option>
+                          </select>
+                    </div>
+                    <div class="form-group col">
+                        <label>Estudios</label>
+                        <select class="form-control" formControlName="estudiosVal" placeholder="Seleccionar" [ngClass]="{ 'is-invalid': submitted && f.estudiosVal.errors }" [(ngModel)]="usuario.persona.estudios" >
+                            <option value="educacion inicial no finalizada">Inicial no finalizado</option>
+                            <option value="educacion inicial finalizada">Inicial finalizado</option>
+                            <option value="educacion primaria no finalizada">Primaria no finalizado</option>
+                            <option value="educacion primaria finalizada">Primaria finalizado</option>
+                            <option value="educacion secundaria no finalizada">Secundaria no finalizado</option>
+                            <option value="educacion secundaria finalizada">Secundaria no finalizado</option>
+                            <option value="educacion superior no finalizada">Superior no finalizado</option>
+                            <option value="educacion superior finalizada">Superior finalizado</option>
+                          </select>
+                    </div>
+                </div>
+                <!-- <div class="form-group form-check">
+                    <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input"
+                        [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
+                    <label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label>
+                </div> -->
+                <div class="form-group">
+                    <button [disabled]="loading" class="btn btn-primary">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        Registrarse
+                    </button>
+                    <a routerLink="../login" href="" class="btn btn-link">Cancelar</a>
+                    
+                </div>
+                <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error.error.message}}</div>
+            </form>
+        </div>
+    </div>
+</div>

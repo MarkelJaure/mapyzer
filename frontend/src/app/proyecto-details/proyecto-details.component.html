@@ -1,0 +1,42 @@
+<div *ngIf="proyecto">
+    <h2>Detalles Proyecto{{ uppercase }}</h2>
+    &nbsp;
+    <form novalidate [formGroup]="createForm">
+        <div class="form-group">
+            <label>Nombre proyecto: *</label>
+            <input type="text" [(ngModel)]="proyecto.proyecto" autocomplete="off" placeholder="Nombre proyecto"
+                class="form-control" formControlName="nombreProyectoVal" />
+        </div>
+        <div class="form-group">
+            <label>Descripción:</label>
+            <input type="text" [(ngModel)]="proyecto.descripcion" autocomplete="off" placeholder="Descripción"
+                class="form-control" formControlName="descripcionVal" />
+        </div>
+        <div class="form-group">
+            <label>Observaciones:</label>
+            <input type="text" [(ngModel)]="proyecto.observaciones" placeholder="Observaciones" class="form-control"
+                formControlName="observacionesVal" />
+        </div>
+        <div class="custom-control custom-checkbox">
+            <input type="radio" formControlName="visibilidadVal" value="publico"> Visibilidad pública
+            &nbsp;
+            <input type="radio" formControlName="visibilidadVal" value="privado"> Visibilidad privada
+        </div>
+        &nbsp;
+        <p>(*) Campos obligatorios.</p>
+        <div>
+            <button (click)="goBack()" class="btn" style="border-color: black;"
+                style="background-color: lightsteelblue;" [ngModelOptions]="{standalone: true}">Atrás
+            </button>
+            &nbsp;
+            <button (click)="onSubmit()" class="btn btn-success mr-1" style="border-color: black; ">
+                Guardar
+            </button>
+            <button (click)="eliminarProyecto()" class="btn btn-danger mr-1" style="border-color: black; float: right;"
+                [hidden]="!proyecto.id">
+                Eliminar Proyecto
+            </button>
+        </div>
+    </form>
+    <app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
+</div>

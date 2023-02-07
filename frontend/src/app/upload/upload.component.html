@@ -1,0 +1,136 @@
+<h2>Carga de datos</h2>
+<br>
+<p>Prepare sus datos de acuerdo a los siguientes esquemas</p>
+<div class="table-responsive-md">
+  <table class="table table-bordered">
+    <thead class="thead-light">
+      <th id="colTitle">Esquema 1: Lugares por coordenadas</th>
+      <th id="colTitle">Esquema 2: Lugares por dirección</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>*codigo, *nombre, descripcion, zona, *tipoLugar, *lat, *lon, tInicio, tFinal</td>
+        <td>*codigo, *nombre, descripcion, zona, *tipoLugar, *calle, altura, *ciudad, tInicio,
+          tFinal</td>
+      </tr>
+      <tr>
+        <td>
+          <button class="btn" style="border-color: black" style="
+          background-color: lightsteelblue;" (click)="descargarCSVesquema('1')">Descargar plantilla CSV
+          </button>
+          &nbsp;
+          <button class="btn" style="border-color: black" style="
+          background-color: lightsteelblue;" (click)="descargarXLSesquema('1')">Descargar plantilla XLS
+          </button>
+        </td>
+        <td>
+          <button class="btn" style="border-color: black" style="
+          background-color: lightsteelblue;" (click)="descargarCSVesquema('2')">Descargar plantilla CSV
+          </button>
+          &nbsp;
+          <button class="btn" style="border-color: black" style="
+          background-color: lightsteelblue;" (click)="descargarXLSesquema('2')">Descargar plantilla XLS
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="table table-bordered">
+    <thead class="thead-light">
+        <th id="headers">Esquema 3: Zonas</th>
+        <th id="headers">Esquema 4: Trayectos</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-center">*codigo, *nombre, descripcion, *tipoZona, tInicio, tFinal, **coordenadas</td>
+        <td class="text-center">*codigo, *nombre, descripcion, *tipoTrayecto, tInicio, tFinal, ***coordenadas</td>
+      </tr>
+      <tr>
+        <td>
+          <button class="btn" style="border-color: black" style="
+          background-color: lightsteelblue;" (click)="descargarCSVesquema('3')">Descargar plantilla CSV
+          </button>
+          &nbsp;
+          <button class="btn" style="border-color: black" style="
+          background-color: lightsteelblue;" (click)="descargarXLSesquema('3')">Descargar plantilla XLS
+          </button>
+        </td>
+        <td>
+          <button class="btn" style="border-color: black" style="
+          background-color: lightsteelblue;" (click)="descargarCSVesquema('4')">Descargar plantilla CSV
+          </button>
+          &nbsp;
+          <button class="btn" style="border-color: black" style="
+          background-color: lightsteelblue;" (click)="descargarXLSesquema('4')">Descargar plantilla XLS
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p>* Campos obligatorios (no deben estar en blanco).</p>
+  <p>** Al menos tres pares de coordenadas. El último par debe ser igual al primero.</p>
+  <p>*** Al menos dos pares de coordenadas.</p>
+  <br>
+  <p>Según el esquema seleccionado, las columnas de su archivo deben nombrarse igual a como se muestra en esta sección.
+  </p>
+  <br>
+  <legend> 1. Seleccione el esquema*</legend>
+  <div class="form-group">
+    <div class="custom-control custom-radio">
+      <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" (change)="setEsquema('1')">
+      <label class="custom-control-label" for="customRadio1">Esquema 1</label>
+    </div>
+    <div class="custom-control custom-radio">
+      <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" (change)="setEsquema('2')">
+      <label class="custom-control-label" for="customRadio2">Esquema 2</label>
+    </div>
+    <div class="custom-control custom-radio">
+      <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input" (change)="setEsquema('3')">
+      <label class="custom-control-label" for="customRadio3">Esquema 3</label>
+    </div>
+    <div class="custom-control custom-radio">
+      <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input" (change)="setEsquema('4')">
+      <label class="custom-control-label" for="customRadio4">Esquema 4</label>
+    </div>
+  </div>
+
+  <br>
+  <legend>2. Suba sus datos en formato CSV o XLS*</legend>
+  <div class="form-group">
+    <div class="input-group mb-3">
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" id="inputGroupFile02" accept=".csv, .xls, .xlsx"
+          (change)="selectFile($event)">
+        <label class="custom-file-label" for="inputGroupFile02" id="iF02">Seleccionar archivo</label>
+      </div>
+      <div class="input-group-append">
+        <button class="input-group-text" (click)="checkExtension()" style="background: #0fff58">
+          Upload
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="currentFile" class="progress">
+    <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+      attr.aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{ width: progress + '%' }">
+      {{ progress }}%
+    </div>
+  </div>
+
+  <br>
+  <alert id="alert-1"></alert>
+  <!--  <ngb-alert *ngIf="successMessage" type="danger" (close)="successMessage = ''">{{ successMessage }}</ngb-alert>-->
+  <!--  <ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = ''">{{ successMessage }}</ngb-alert>-->
+  <!--  <div class="alert alert-success" role="alert">{{ message }}</div>-->
+
+  <br>
+  <button (click)="goBack()" class="btn" style="border-color: black;" style="background-color: grey;">Atrás</button>
+  &nbsp;
+  <button class="btn" style="border-color: black; margin-left: 100px;" style="
+    background-color: lightsteelblue;" (click)="goBack()">Finalizar
+  </button> &nbsp;
+
+  <br><br>
+
+</div>

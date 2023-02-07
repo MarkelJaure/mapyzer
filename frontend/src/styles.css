@@ -1,0 +1,59 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@import "~leaflet/dist/leaflet.css";
+
+.map-wrapper {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 10px;
+  }
+  
+  .map-border {
+    border: 5px solid orange;
+    height: 100%;
+  }
+  
+  #map {
+    height: 100%;
+  }
+
+  #body1 {
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    justify-content: left;
+
+    
+  }
+
+  #body1 > div {
+    margin-left: 200px;
+  }
+
+  .botones {
+    width: 200px;
+    border: 1px solid lightsteelblue;
+    border-radius: 5px;
+    padding: 20px;
+
+  }
+
+  .active a {
+    background-color: #DFFEFE;
+  }
+
+  #refreshButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    z-index: 1;
+  }
+  
+  .container i {
+    margin-left: -30px;
+    cursor: pointer;
+}

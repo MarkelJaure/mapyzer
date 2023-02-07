@@ -1,0 +1,76 @@
+<div *ngIf="usuario">
+    <h2>{{"Detalles del usuario: " + usuario.username}}
+        <!-- <a routerLink="/editPassword" class="btn float-right" style="border-color: black;" style="background-color: lightsteelblue;">Editar contraseña</a> -->
+      </h2> 
+    <h3>Editar perfil</h3>
+    <form novalidate [formGroup]="createForm">
+        <div class="form-group">
+            <label>Nombre de usuario:*</label>
+            <input type="text" [(ngModel)]="usuario.username" autocomplete="off" placeholder="Username"  [ngClass]="{ 'is-invalid': submitted && f.usernameVal.errors }"
+                class="form-control" formControlName="usernameVal" readonly/>
+        </div>
+
+        <div class="form-group">
+            <label>Email:*</label>
+            <input type="text" [(ngModel)]="usuario.email" autocomplete="off" placeholder="Email" [ngClass]="{ 'is-invalid': submitted && f.emailVal.errors }"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control" formControlName="emailVal"readonly />
+        </div>
+
+        <div class="form-group">
+            <label>Rol</label>
+            <input type="text" [(ngModel)]="usuario.rol" style="text-transform:uppercase" autocomplete="off" [ngClass]="{ 'is-invalid': submitted && f.rolVal.errors }"
+                placeholder="Rol" formControlName="rolVal" class="form-control" readonly />
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col">
+                <label>Nombre/s:*</label>
+                <input type="text" [(ngModel)]="usuario.persona.name" placeholder="Name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nameVal.errors }"
+                    formControlName="nameVal" readonly/>
+            </div>
+
+            <div class="form-group col">
+                <label>Apellido/s:*</label>
+                <input type="text" [(ngModel)]="usuario.persona.lastname" placeholder="LastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastNameVal.errors }"
+                    formControlName="lastNameVal"readonly />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col">
+                <label>DNI:*</label>
+                <input type="number" [(ngModel)]="usuario.persona.dni" placeholder="DNI" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dniVal.errors }"
+                    formControlName="dniVal"readonly />
+            </div>
+
+            <div class="form-group col">
+                <label>Telefono:*</label>
+                <input type="number" [(ngModel)]="usuario.persona.telefono" placeholder="Telefono" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.telefonoVal.errors }"
+                    formControlName="telefonoVal"readonly />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col">
+                <label>Ambito Laboral:*</label>
+                <input type="text" [(ngModel)]="usuario.persona.ambito" placeholder="Ambito" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ambitoVal.errors }"
+                    formControlName="ambitoVal"readonly />
+            </div>
+
+            <div class="form-group col">
+                <label>Estudios:*</label>
+                <input type="text" [(ngModel)]="usuario.persona.estudios" placeholder="Estudios" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.estudiosVal.errors }"
+                    formControlName="estudiosVal"readonly />
+            </div>
+        </div>
+        
+        <div>
+            <button (click)="goBack()" class="btn" style="border-color: black;"
+              style="background-color: lightsteelblue;">Atrás
+            </button>
+            &nbsp;
+          </div>
+
+    </form>
+
+</div>

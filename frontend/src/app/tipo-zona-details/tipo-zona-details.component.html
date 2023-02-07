@@ -1,0 +1,68 @@
+<div *ngIf="tipo_zona">
+    <h2>Nuevo Tipo de Zona{{ uppercase }}</h2>
+    &nbsp;
+    <form novalidate [formGroup]="createForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Nombre Tipo Zona: *</label>
+            <input type="text" [(ngModel)]="tipo_zona.tipo_zona" autocomplete="off" placeholder="Nombre Tipo Zona"
+                class="form-control" formControlName="nombreTipoZonaVal" title="Solo letras minúsculas y/o números" />
+        </div>
+        <div class="form-group">
+            <label>Descripción:</label>
+            <input type="text" [(ngModel)]="tipo_zona.descripcion" placeholder="Descripcion" class="form-control"
+                formControlName="descripcionVal" />
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <label>Tipo de línea:</label>
+                <input type="text" [(ngModel)]="tipo_zona.tipo_linea" autocomplete="off"
+                    placeholder="Tipo de línea (Ej: 10,10)" class="form-control" formControlName="tipoLineaVal"
+                    title="Ejemplo: 2,5" />
+            </div>
+            <div class="form-group col">
+                <label>Color: </label>
+                <select name="color" [(ngModel)]="tipo_zona.color" class="form-control" formControlName="colorVal">
+                    <option value="1" [selected]="tipo_zona.color == 'blue'">Azul</option>
+                    <option value="2" [selected]="tipo_zona.color == 'gold'">Dorado</option>
+                    <option value="3" [selected]="tipo_zona.color == 'red'">Rojo</option>
+                    <option value="4" [selected]="tipo_zona.color == 'green'">Verde</option>
+                    <option value="5" [selected]="tipo_zona.color == 'orange'">Naranja</option>
+                    <option value="6" [selected]="tipo_zona.color == 'yellow'">Amarillo</option>
+                    <option value="7" [selected]="tipo_zona.color == 'violet'">Violeta</option>
+                    <option value="8" [selected]="tipo_zona.color == 'grey'">Gris</option>
+                    <option value="9" [selected]="tipo_zona.color == 'black'">Negro</option>
+                    <option value="10" [selected]="tipo_zona.color == 'brown'">Marrón</option>
+                </select>
+            </div>
+            <div class="form-group col">
+                <label>Color relleno: </label>
+                <select name="color" [(ngModel)]="tipo_zona.color_relleno" class="form-control"
+                    formControlName="color_rellenoVal">
+                    <option value="1" [selected]="tipo_zona.color_relleno == 'blue'">Azul</option>
+                    <option value="2" [selected]="tipo_zona.color_relleno == 'gold'">Dorado</option>
+                    <option value="3" [selected]="tipo_zona.color_relleno == 'red'">Rojo</option>
+                    <option value="4" [selected]="tipo_zona.color_relleno == 'green'">Verde</option>
+                    <option value="5" [selected]="tipo_zona.color_relleno == 'orange'">Naranja</option>
+                    <option value="6" [selected]="tipo_zona.color_relleno == 'yellow'">Amarillo</option>
+                    <option value="7" [selected]="tipo_zona.color_relleno == 'violet'">Violeta</option>
+                    <option value="8" [selected]="tipo_zona.color_relleno == 'grey'">Gris</option>
+                    <option value="9" [selected]="tipo_zona.color_relleno == 'black'">Negro</option>
+                    <option value="10" [selected]="tipo_zona.color_relleno == 'brown'">Marrón</option>
+                </select>
+            </div>
+        </div>
+        &nbsp;
+        <p>(*) Campos obligatorios.</p>
+        <div>
+            <button (click)="goBack()" class="btn" style="border-color: black;"
+                style="background-color: lightsteelblue;" [ngModelOptions]="{standalone: true}">Atrás
+            </button>
+            &nbsp;
+            <button class="btn btn-primary mr-1" style="border-color: black; background-color: gray;">
+                Guardar
+            </button>
+        </div>
+    </form>
+    <app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
+
+</div>

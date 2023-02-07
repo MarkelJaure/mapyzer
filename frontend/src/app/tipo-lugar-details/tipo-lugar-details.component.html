@@ -1,0 +1,100 @@
+<div *ngIf="tipo_lugar">
+    <h2>Nuevo Tipo de Lugar{{ uppercase }}</h2>
+    &nbsp;
+    <form novalidate [formGroup]="createForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Nombre Tipo Lugar: *</label>
+            <input type="text" [(ngModel)]="tipo_lugar.tipo_lugar" autocomplete="off" placeholder="Nombre Tipo Lugar"
+                class="form-control" formControlName="nombreTipoLugarVal" title="Solo letras minúsculas y/o números" />
+        </div>
+        <div class="form-group">
+            <label>Descripción:</label>
+            <input type="text" [(ngModel)]="tipo_lugar.descripcion" placeholder="Descripcion" class="form-control"
+                formControlName="descripcionVal" />
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <label>Tipo marcador:</label>
+                <select name="tipo_marcador" [(ng-model)]="tipo_lugar.tipo_marcador" class="form-control"
+                    formControlName="tipoMarcadorVal">
+                    <option value="1" [selected]="tipo_lugar.tipo_marcador == null">Default</option>
+                    <option value="2" [selected]="tipo_lugar.tipo_marcador == 'star'">Estrella</option>
+                    <option value="3" [selected]="tipo_lugar.tipo_marcador == 'diamond'">Diamante</option>
+                    <option value="4" [selected]="tipo_lugar.tipo_marcador == 'square'">Cuadrado</option>
+                </select>
+            </div>
+            <div class="form-group col">
+                <label>Ícono:</label>
+                <select name="icono" [(ng-model)]="tipo_lugar.icono" class="form-control" formControlName="iconoVal">
+                    <option value="0" [selected]="tipo_lugar.icono == null">Default</option>
+                    <option value="1" [selected]="tipo_lugar.icono == 'airport'">Aeropuerto</option>
+                    <option value="2" [selected]="tipo_lugar.icono == 'bank'">Banco</option>
+                    <option value="3" [selected]="tipo_lugar.icono == 'home'">Casa</option>
+                    <option value="4" [selected]="tipo_lugar.icono == 'educative'">Educativo</option>
+                    <option value="5" [selected]="tipo_lugar.icono == 'gym'">Gimnasio</option>
+                    <option value="6" [selected]="tipo_lugar.icono == 'goberment'">Gubernamental</option>
+                    <option value="7" [selected]="tipo_lugar.icono == 'hospital'">Hospital</option>
+                    <option value="8" [selected]="tipo_lugar.icono == 'hotel'">Hotel</option>
+                    <option value="9" [selected]="tipo_lugar.icono == 'church'">Iglesia</option>
+                    <option value="10" [selected]="tipo_lugar.icono == 'office'">Oficina</option>
+                    <option value="11" [selected]="tipo_lugar.icono == 'shipport'">Puerto maritimo</option>
+                    <option value="12" [selected]="tipo_lugar.icono == 'rest'">Residencia</option>
+                    <option value="13" [selected]="tipo_lugar.icono == 'restaurant'">Restaurante</option>
+                    <option value="14" [selected]="tipo_lugar.icono == 'market'">Supermercado</option>
+                </select>
+            </div>
+            <div class="form-group" id="formColor">
+                <label>Color: </label>
+                <select id="color" [(ng-model)]="tipo_lugar.color" class="form-control" formControlName="colorVal">
+                    <option value="0" [selected]="tipo_lugar.color == null">Default</option>
+                    <option value="1" [selected]="tipo_lugar.color == 'yellow'">Amarillo</option>
+                    <option value="2" [selected]="tipo_lugar.color == 'blue'">Azul</option>
+                    <option value="3" [selected]="tipo_lugar.color == 'darkblue'">Azul oscuro</option>
+                    <option value="4" [selected]="tipo_lugar.color == 'white'">Blanco</option>
+                    <option value="5" [selected]="tipo_lugar.color == 'lightblue'">Celeste</option>
+                    <option value="6" [selected]="tipo_lugar.color == 'orange'">Naranja</option>
+                    <option value="7" [selected]="tipo_lugar.color == 'black'">Negro</option>
+                    <option value="8" [selected]="tipo_lugar.color == 'red'">Rojo</option>
+                    <option value="9" [selected]="tipo_lugar.color == 'darkred'">Rojo oscuro</option>
+                    <option value="10" [selected]="tipo_lugar.color == 'pink'">Rosa</option>
+                    <option value="11" [selected]="tipo_lugar.color == 'darkpink'">Rosa oscuro</option>
+                    <option value="12" [selected]="tipo_lugar.color == 'green'">Verde</option>
+                    <option value="13" [selected]="tipo_lugar.color == 'lightgreen'">Verde claro</option>
+                    <option value="14" [selected]="tipo_lugar.color == 'darkgreen'">Verde oscuro</option>
+                    <option value="15" [selected]="tipo_lugar.color == 'violet'">Violeta</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <label>Tamaño:</label>
+                <input type="text" [(ngModel)]="tipo_lugar.size" autocomplete="off"
+                    placeholder="Tamaño (Min. 20, Max. 50)" class="form-control" formControlName="tamañoVal"
+                    title="Solo números" />
+            </div>
+            <div class="form-group col">
+                <label>Clasificador:</label>
+                <input type="text" [(ngModel)]="tipo_lugar.clasificador" autocomplete="off"
+                    placeholder="Clasificador del lugar (Ej: Hotel; Clasificador: Servicios)" class="form-control"
+                    formControlName="clasificadorVal" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Observaciones:</label>
+            <input type="text" [(ngModel)]="tipo_lugar.observaciones" placeholder="Observaciones" class="form-control"
+                formControlName="observacionesVal" />
+        </div>
+        &nbsp;
+        <p>(*) Campos obligatorios.</p>
+        <div>
+            <button (click)="goBack()" class="btn" style="border-color: black;"
+                style="background-color: lightsteelblue;" [ngModelOptions]="{standalone: true}">Atrás
+            </button>
+            &nbsp;
+            <button class="btn btn-primary mr-1" style="border-color: black; background-color: gray;">
+                Guardar
+            </button>
+        </div>
+    </form>
+    <app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
+</div>

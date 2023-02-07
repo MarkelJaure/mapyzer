@@ -1,0 +1,65 @@
+.map-wrapper {
+    margin-top: 70px;
+  }
+
+  label {
+    position: absolute;
+    z-index: 1;
+    top: 150px;
+    right: 20px; 
+  }
+
+  #capa1 {
+    position: absolute;
+    z-index: 1;
+    top: 30px;
+    right: 10px;
+  }
+
+  #capa1_multimedia {
+    position: absolute;
+    z-index: 1;
+    top: 105px;
+    right: 35px;
+    
+  }
+
+  #capa1_velocidad {
+    position: absolute;
+    z-index: 1;
+    top: 150px;
+    right: 153px;
+    
+  }
+
+  #capa2 {
+    z-index: 0;
+  }
+
+  #capa3 {
+    position: fixed;
+    z-index: 2;
+    top: 90px;
+    right: 15px;
+  }
+
+  #map {
+    z-index: 0;
+  }
+
+  input[type=range]{
+    width: 17em;
+    height: 2em;
+    display: inline-block;
+  }
+
+  input[type=range]:focus {
+    outline: none;
+  }
+
+  #filterButton {
+    position: fixed;
+    z-index: 2;
+    bottom: 20px;
+    
+  }

@@ -1,0 +1,203 @@
+<h2>Tipos de lugar, zona y trayecto <a [hidden]="!usuarioService.isAdmin()" class="btn float-right">
+        <div class="form-row">
+            <div ngbDropdown class="col-auto">
+                <button class="btn float-right" id="dropdownAddData" ngbDropdownToggle
+                    style="background-color: lightsteelblue; margin-right: 0; float: right">Nuevo tipo de</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownExport">
+                    <button ngbDropdownItem routerLink="/tipo_lugar/{{newEncriptado}}">Lugar</button>
+                    <button ngbDropdownItem routerLink="/tipo_zona/{{newEncriptado}}">Zona</button>
+                    <button ngbDropdownItem routerLink="/tipo_trayecto/{{newEncriptado}}">Trayecto</button>
+                </div>
+            </div>
+        </div>
+
+    </a>
+</h2>
+<p [hidden]="usuarioService.isAdmin()">Estos son los "tipos de" disponibles. En caso de solicitar uno nuevo, por favor
+    contacte a un administrador.</p>
+<div class="table-responsive">
+    <hr>
+    <nav ngbNav #nav="ngbNav" class="nav-tabs">
+        <!-- Comienzo de pestaña Tipos de lugar -->
+        <ng-container ngbNavItem>
+            <a ngbNavLink>Tipos de lugar</a>
+            <ng-template ngbNavContent>
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Clasificador</th>
+                            <th>Tipo marcador</th>
+                            <th>Ícono</th>
+                            <th>Tamaño</th>
+                            <th>Color</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let tipoLugar of resultsPageTiposLugar.results; index as i">
+                            <td>{{ (i + 1) + (size * (currentPageTiposLugar-1)) }}</td>
+                            <td>{{ tipoLugar.tipo_lugar }}</td>
+                            <td>{{ tipoLugar.clasificador }}</td>
+                            <td>{{ traducirMarcador(tipoLugar.tipo_marcador) }}</td>
+                            <td>{{ traducirIcono(tipoLugar.icono) }}</td>
+                            <td>{{ tipoLugar.size }}</td>
+                            <td>{{ traducirColor(tipoLugar.color) }}</td>
+                            <td>
+                                <a [hidden]="!usuarioService.isAdmin()" routerLink="/tipo_lugar/{{idTiposLugaresEncriptados[i]}}"><i class="fa fa-pencil"></i></a>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <nav aria-label="Page navigation example" [hidden]="resultsPageTiposLugar.count <= 1">
+                    <ul class="pagination pagination-centered">
+                        <li class="page-item" *ngIf="currentPageTiposLugar > 3">
+                            <a class="page-link" (click)="showPageTiposLugar(-2)">1</a>
+                        </li>
+                        <li class="page-item" *ngIf="currentPageTiposLugar > 4">
+                            <a class="page-link" (click)="showPageTiposLugar(-1)">...</a>
+                        </li>
+                        <li *ngFor="let t of pagesTiposLugar;"
+                            [ngClass]="{true: 'active'}[t+1 === currentPageTiposLugar]">
+                            <a *ngIf=" t >= ((currentPageTiposLugar<= 3) ? 0 : currentPageTiposLugar - 3) && t <= ((currentPageTiposLugar <= 3) ? 4 : currentPageTiposLugar + 1)"
+                                class="page-link" (click)="showPageTiposLugar(t + 1)"> {{t+1}} </a>
+                        </li>
+                        <li class="page-item"
+                            *ngIf="currentPageTiposLugar < resultsPageTiposLugar.last - 2 && (!(currentPageTiposLugar <3) || currentPageTiposLugar + 4 < resultsPageTiposLugar.last)">
+                            <a class="page-link" (click)="showPageTiposLugar(-3)">...</a>
+                        </li>
+                        <li class="page-item"
+                            *ngIf="currentPageTiposLugar < resultsPageTiposLugar.last - 2 && (!(currentPageTiposLugar <3) || currentPageTiposLugar + 4 < resultsPageTiposLugar.last) ">
+                            <a class="page-link" (click)="showPageTiposLugar(-4)">{{resultsPageTiposLugar.last}}</a>
+                        </li>
+                    </ul>
+                </nav>
+            </ng-template>
+        </ng-container>
+        <!-- Comienzo de pestaña Tipos de zona -->
+        <ng-container ngbNavItem>
+            <a ngbNavLink>Tipos de zona</a>
+            <ng-template ngbNavContent>
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Tipo línea</th>
+                            <th>Color línea</th>
+                            <th>Color relleno</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let tipoZona of resultsPageTiposZona.results; index as i">
+                            <td>{{ (i + 1) + (size * (currentPageTiposZona-1)) }}</td>
+                            <td>{{ tipoZona.tipo_zona }}</td>
+                            <td>{{ tipoZona.tipo_linea }}</td>
+                            <td>{{ traducirColor(tipoZona.color) }}</td>
+                            <td>{{ traducirColor(tipoZona.color_relleno) }}</td>
+                            <td>
+                                <a [hidden]="!usuarioService.isAdmin()" routerLink="/tipo_zona/{{idTiposZonasEncriptados[i]}}"><i class="fa fa-pencil"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <nav aria-label="Page navigation example" [hidden]="resultsPageTiposZona.count <= 1">
+                    <ul class="pagination pagination-centered">
+                        <li class="page-item" *ngIf="currentPageTiposZona > 3">
+                            <a class="page-link" (click)="showPageTiposZona(-2)">1</a>
+                        </li>
+                        <li class="page-item" *ngIf="currentPageTiposZona > 4">
+                            <a class="page-link" (click)="showPageTiposZona(-1)">...</a>
+                        </li>
+                        <li *ngFor="let t of pagesTiposZona;"
+                            [ngClass]="{true: 'active'}[t+1 === currentPageTiposZona]">
+                            <a *ngIf=" t >= ((currentPageTiposZona<= 3) ? 0 : currentPageTiposZona - 3) && t <= ((currentPageTiposZona <= 3) ? 4 : currentPageTiposZona + 1)"
+                                class="page-link" (click)="showPageTiposZona(t + 1)"> {{t+1}} </a>
+                        </li>
+                        <li class="page-item"
+                            *ngIf="currentPageTiposZona < resultsPageTiposZona.last - 2 && (!(currentPageTiposZona <3) || currentPageTiposZona + 4 < resultsPageTiposZona.last)">
+                            <a class="page-link" (click)="showPageTiposZona(-3)">...</a>
+                        </li>
+                        <li class="page-item"
+                            *ngIf="currentPageTiposZona < resultsPageTiposZona.last - 2 && (!(currentPageTiposZona <3) || currentPageTiposZona + 4 < resultsPageTiposZona.last) ">
+                            <a class="page-link" (click)="showPageTiposZona(-4)">{{resultsPageTiposZona.last}}</a>
+                        </li>
+                    </ul>
+                </nav>
+            </ng-template>
+        </ng-container>
+        <!-- Comienzo de pestaña Tipos de trayecto -->
+        <ng-container ngbNavItem>
+            <a ngbNavLink>Tipos de trayecto</a>
+            <ng-template ngbNavContent>
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Clasificador</th>
+                            <th>Tamaño línea</th>
+                            <th>Tipo línea</th>
+                            <th>Color línea</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let tipoTrayecto of resultsPageTiposTrayecto.results; index as i">
+                            <td>{{ (i + 1) + (size * (currentPageTiposTrayecto-1)) }}</td>
+                            <td>{{ tipoTrayecto.tipo_trayecto }}</td>
+                            <td>{{ tipoTrayecto.clasificador }}</td>
+                            <td>{{ tipoTrayecto.linea }}</td>
+                            <td>{{ tipoTrayecto.tipo_linea }}</td>
+                            <td>{{ traducirColor(tipoTrayecto.color) }}</td>
+                            <td>
+                                <a [hidden]="!usuarioService.isAdmin()" routerLink="/tipo_trayecto/{{idTiposTrayectosEncriptados[i]}}"><i class="fa fa-pencil"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <nav aria-label="Page navigation example" [hidden]="resultsPageTiposTrayecto.count <= 1">
+                    <ul class="pagination pagination-centered">
+                        <li class="page-item" *ngIf="currentPageTiposTrayecto > 3">
+                            <a class="page-link" (click)="showPageTiposTrayecto(-2)">1</a>
+                        </li>
+                        <li class="page-item" *ngIf="currentPageTiposTrayecto > 4">
+                            <a class="page-link" (click)="showPageTiposTrayecto(-1)">...</a>
+                        </li>
+                        <li *ngFor="let t of pagesTiposTrayecto;"
+                            [ngClass]="{true: 'active'}[t+1 === currentPageTiposTrayecto]">
+                            <a *ngIf=" t >= ((currentPageTiposTrayecto<= 3) ? 0 : currentPageTiposTrayecto - 3) && t <= ((currentPageTiposTrayecto <= 3) ? 4 : currentPageTiposTrayecto + 1)"
+                                class="page-link" (click)="showPageTiposTrayecto(t + 1)"> {{t+1}} </a>
+                        </li>
+                        <li class="page-item"
+                            *ngIf="currentPageTiposTrayecto < resultsPageTiposTrayecto.last - 2 && (!(currentPageTiposTrayecto <3) || currentPageTiposTrayecto + 4 < resultsPageTiposTrayecto.last)">
+                            <a class="page-link" (click)="showPageTiposTrayecto(-3)">...</a>
+                        </li>
+                        <li class="page-item"
+                            *ngIf="currentPageTiposTrayecto < resultsPageTiposTrayecto.last - 2 && (!(currentPageTiposTrayecto <3) || currentPageTiposTrayecto + 4 < resultsPageTiposTrayecto.last) ">
+                            <a class="page-link"
+                                (click)="showPageTiposTrayecto(-4)">{{resultsPageTiposTrayecto.last}}</a>
+                        </li>
+                    </ul>
+                </nav>
+            </ng-template>
+        </ng-container>&nbsp;&nbsp;&nbsp;
+
+        <div ngbDropdown>
+            <button class="btn btn-info btn-sm" id= "size"   ngbDropdownToggle>{{size}}</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownFilter">
+      
+              <button ngbDropdownItem id="5" on-click="changeSize(5)">    5   </button>
+              <button ngbDropdownItem id="10" on-click="changeSize(10)">  10  </button>
+              <button ngbDropdownItem id="25" on-click="changeSize(25)">  25  </button>
+              <button ngbDropdownItem id="50" on-click="changeSize(50)">  50  </button>
+      
+            </div>
+          </div>
+    </nav>
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+    &nbsp;
+</div>

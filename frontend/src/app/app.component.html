@@ -1,0 +1,31 @@
+<div [ngStyle]="{ background: 'lightgrey' }"
+  class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom border-dark">
+  <h5 id = "clickeable"class="my-0 mr-md-auto font-weight-bold" routerLink="/">Mapyzer</h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a class="p-2 text-dark" routerLink="/">Inicio</a>
+    <!-- <a class="p-2 text-dark" routerLink="/map">Mapa</a>
+    <a class="p-2 text-dark" routerLink="/lugares">Lugares</a>
+    <a class="p-2 text-dark" routerLink="/zonas">Zonas</a>
+    <a class="p-2 text-dark" routerLink="/trayectos">Trayectos</a> -->
+    <a class="p-2 text-dark" routerLink="/proyectos">Proyectos</a>
+    <a [hidden]="!usuarioService.isUser()"class="p-2 text-dark" routerLink="/tipos_de">Tipos de</a>
+    <a [hidden]="!usuarioService.isAdmin()" class="p-2 text-dark" routerLink="/usuarios">Usuarios </a>
+    &nbsp;
+
+    <div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
+      <button class="btn btn-outline-primary mr-2 btn-sm" id="dropdownManual" [hidden]="!currentUser" ngbDropdownAnchor
+        (focus)="myDrop.open()">{{currentUser ? currentUser.username: ''}}</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownManual">
+        <button ngbDropdownItem (click)="editProfile()">Editar Perfil</button>
+        <div class="dropdown-divider"></div>
+        <button ngbDropdownItem (click)="logout()">Cerrar Sesion</button>
+      </div>
+    </div>
+
+
+    <a class="btn btn-outline-primary mr-2 btn-sm" [hidden]="currentUser" routerLink="/login">Iniciar sesion</a>
+  </nav>
+</div>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

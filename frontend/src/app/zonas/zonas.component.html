@@ -1,0 +1,68 @@
+<h2>Zonas</h2>
+<div class="table-responsive">
+  <hr>
+  <div class="form-row align-items-center">
+    <div class="col-md-3 mb-4">
+      <label >Nombre</label>
+      <input [(ngModel)]="zona" name="zonaNombre" placeholder="Nombre" class="form-control" required />
+    </div>
+    <div class="col-md-3.5 mb-4">
+      <label >Fecha</label>
+      <input class="form-control" [(ngModel)]="fecha" type="datetime-local" max="9999-12-31T23:59" value="" id="example-datetime-local-input">
+      <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input [(ngModel)]="allowValidityNull" type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Permitir "Sin Rango"</label> -->
+    </div>
+    <div class="col-auto">
+      <button type="submit" (click)="currentPage = 1;getZonas()" class="btn btn-primary">Filtrar</button>
+    </div>
+    <div class="col-auto">
+      <button type="submit" (click)="zona = ''; fecha = ''; currentPage = 1;getZonas()" class="btn btn-danger">Limpiar </button>
+    </div>
+  </div>
+  <table class="table table-striped table-sm">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Codigo</th>
+        <th>Nombre</th>
+        <th>Tipo Zona</th>
+        <th>Fecha desde</th>
+        <th>Fecha hasta</th>
+        <!-- <th></th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let zona of resultsPage.results; index as i">
+        <td>{{ (i + 1) + (size * (currentPage-1)) }}</td>
+        <td>{{ zona.codigo }}</td>
+        <td>{{ zona.zona }}</td>
+        <td>{{ zona.tipos_zona.tipo_zona }}</td>
+        <td *ngIf="zona.validity[0]">{{ zona.validity[0].value }}</td>
+        <td *ngIf="zona.validity[1]">{{ zona.validity[1].value}}</td>
+        <td>
+          <!-- <a  routerLink="/zonas/{{zona.id}}"><i class="fa fa-eye"></i></a> -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <nav aria-label="Page navigation example" [hidden]="resultsPage.count <= 1">
+    <ul class="pagination pagination-centered">
+      <li class="page-item" *ngIf="currentPage > 3">
+        <a class="page-link" (click)="showPage(-2)">1</a>
+      </li>
+      <li class="page-item" *ngIf="currentPage > 3">
+        <a class="page-link" (click)="showPage(-1)">...</a>
+      </li>
+      <li *ngFor="let t of pages;" [ngClass]="{true: 'active'}[t+1 === currentPage]">
+        <a *ngIf=" t >= ((currentPage <= 3) ? 0 :  currentPage - 3) && t <= ((currentPage <= 3) ? 4:  currentPage + 1)" class="page-link" (click)="showPage(t + 1)"> {{t+1}} </a>
+      </li>
+      <li class="page-item"  *ngIf="currentPage < resultsPage.last - 2 && (!(currentPage <3) || currentPage + 4 < resultsPage.last)">
+        <a class="page-link" (click)="showPage(-3)">...</a>
+      </li>
+      <li class="page-item"  *ngIf="currentPage < resultsPage.last - 2 && (!(currentPage <3) || currentPage + 4 < resultsPage.last) ">
+        <a class="page-link" (click)="showPage(-4)">{{resultsPage.last}}</a>
+      </li>
+    </ul>
+  </nav>
+</div>

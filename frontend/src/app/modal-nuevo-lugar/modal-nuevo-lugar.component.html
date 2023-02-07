@@ -1,0 +1,31 @@
+<div class="modal-header">
+  <h4 class="modal-title">Elige el tipo de dato.</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body form-row justify-content-center">
+  <div class="col-md-3 mb-4">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close()"
+            routerLink="/DatosProyecto/{{proyectoId}}/esquema1/{{newEncriptado}}">Lugar por coordenadas
+    </button>
+  </div>
+  <div class="col-md-3 mb-4">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close()"
+            routerLink="/DatosProyecto/{{proyectoId}}/esquema2/{{newEncriptado}}">Lugar por dirección
+    </button>
+  </div>
+  <div class="col-md-3 mb-4">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close()"
+            routerLink="/DatosProyecto/{{proyectoId}}/esquema3/{{newEncriptado}}">Zona
+    </button>
+  </div>
+  <div class="col-md-3 mb-4">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close()"
+            routerLink="/DatosProyecto/{{proyectoId}}/esquema4/{{newEncriptado}}">Trayecto
+    </button>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close()">Cerrar</button>
+</div>

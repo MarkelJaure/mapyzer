@@ -1,0 +1,88 @@
+<head>
+  <title>Mapa dinamico</title>
+</head>
+<br><br>
+
+<body>
+  <div id="capa-2" class="map-wrapper">
+    <div class="map-border">
+      <label id="labelFecha"></label>
+      <div id="capa1">
+        <p> Ver en el tiempo <input type="checkbox" [disabled]="this.playing" id="checkVerEnElTiempo"
+            (click)="checkboxVerEnElTiempo()" onchange="document.getElementById('inputSlider').disabled = !this.checked; 
+        document.getElementById('fullBackward').hidden = !this.checked;
+        document.getElementById('backward').hidden = !this.checked;
+        document.getElementById('play').hidden = !this.checked;
+        document.getElementById('foward').hidden = !this.checked
+        document.getElementById('fullFoward').hidden = !this.checked;
+        document.getElementById('speed').hidden = !this.checked;
+        document.getElementById('labelFecha').hidden = !this.checked;"> </p>
+        <input type="range" id="inputSlider" value="0" disabled="disabled">
+      </div>
+      <div id="capa1_multimedia">
+        <button id="fullBackward" class="btn btn-info fa fa-fast-backward" aria-hidden="true" hidden="true"
+          [disabled]="this.playing" (click)="primerFecha()"></button>&nbsp;
+        <button id="backward" class="btn btn-info fa fa-step-backward" aria-hidden="true" hidden="true"
+          [disabled]="this.playing" (click)="fechaAnterior()"></button>&nbsp;
+        <button id="play" class="btn btn-info fa fa-play" aria-hidden="true" hidden="true"
+          (click)="playAndPause()"></button>&nbsp;
+        <button id="foward" class="btn btn-info fa fa-step-forward" aria-hidden="true" hidden="true"
+          [disabled]="this.playing" (click)="fechaSiguiente()"></button>&nbsp;
+        <button id="fullFoward" class="btn btn-info fa fa-fast-forward" aria-hidden="true" hidden="true"
+          [disabled]="this.playing" (click)="ultimaFecha()"></button>
+      </div>
+      <div ngbDropdown class="col-auto" id="capa1_velocidad">
+        <button class="btn btn-info btn-sm" id="speed" hidden="true" ngbDropdownToggle>{{(number(this.selectedSpeed) ?
+          number(this.selectedSpeed) + "x" : "Velocidad")}}</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownFilter">
+
+          <button ngbDropdownItem id="0.25" on-click="changeSpeed('0.25')">0.25x</button>
+          <button ngbDropdownItem id="0.5" on-click="changeSpeed('0.5')"> 0.5x</button>
+          <button ngbDropdownItem id="1" on-click="changeSpeed('1')"> 1x </button>
+          <button ngbDropdownItem id="1.5" on-click="changeSpeed('1.5')"> 1.5x</button>
+          <button ngbDropdownItem id="2" on-click="changeSpeed('2')"> 2x </button>
+
+        </div>
+      </div>
+
+      <div id="map">
+      </div>
+
+    </div>
+    <div class="col-auto" id="capa3">
+      <button *ngIf="idEncripted && visualizadorProyectoEnMapa.proyecto" class="btn btn-success"
+        routerLink="/DatosProyecto/{{idEncripted}}">Ver en tabla</button>
+
+    </div>
+    <div ngbDropdown autoClose="outside" class="col-auto" id="filterButton">
+      <button class="btn btn-success" ngbDropdownToggle>Filtros</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownFilter">
+        <button ngbDropdownItem><input id="hideMarkers" type="checkbox" (click)="ocultarDataChecked(NRO_LUGAR)"> Ocultar
+          Lugares</button>
+        <button ngbDropdownItem><input id="hidePolygons" type="checkbox" (click)="ocultarDataChecked(NRO_ZONA)"> Ocultar
+          Zonas</button>
+        <button ngbDropdownItem><input id="hideLinestrings" type="checkbox" (click)="ocultarDataChecked(NRO_TRAYECTO)">
+          Ocultar Trayectos</button>
+          <tr
+            *ngFor="let tipoLugar of visualizadorProyectoEnMapa.controladorDatoEnMapaDinamico[NRO_LUGAR].filtroController.tiposDe; index as i">
+            <button ngbDropdownItem><input (click)="hideByTipoDeIsChecked(NRO_LUGAR, tipoLugar)" id={{tipoLugar}}
+                type="checkbox"> Ocultar Tipo
+              lugar: {{tipoLugar}}</button>
+          </tr>
+          <tr
+            *ngFor="let tipoZona of visualizadorProyectoEnMapa.controladorDatoEnMapaDinamico[NRO_ZONA].filtroController.tiposDe; index as i">
+            <button ngbDropdownItem><input (click)="hideByTipoDeIsChecked(NRO_ZONA, tipoZona);" id={{tipoZona}}
+                type="checkbox"> Ocultar Tipo zona:
+              {{tipoZona}}</button>
+          </tr>
+          <tr
+            *ngFor="let tipoTrayecto of visualizadorProyectoEnMapa.controladorDatoEnMapaDinamico[NRO_TRAYECTO].filtroController.tiposDe; index as i">
+            <button ngbDropdownItem><input (click)="hideByTipoDeIsChecked(NRO_TRAYECTO, tipoTrayecto)"
+                id={{tipoTrayecto}} type="checkbox"> Ocultar
+              Tipo trayecto: {{tipoTrayecto}}</button>
+          </tr>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+</body>

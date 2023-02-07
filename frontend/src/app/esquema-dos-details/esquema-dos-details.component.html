@@ -1,0 +1,101 @@
+<div *ngIf="lugar">
+  <h2>Detalles lugar</h2>
+  <h3>Ingrese los datos del lugar</h3>
+  <form novalidate [formGroup]="createForm">
+    <div class="form-group">
+      <label>Código:*</label>
+      <input type="text" [(ngModel)]="lugar.codigo" autocomplete="off" placeholder="Código" class="form-control"
+        formControlName="codigoVal" />
+    </div>
+
+    <div class="form-group">
+      <label>Nombre:*</label>
+      <input type="text" [(ngModel)]="lugar.lugar" autocomplete="off" placeholder="Nombre" class="form-control"
+        formControlName="nombreVal" />
+    </div>
+
+    <div class="form-group">
+      <label>Descripción:</label>
+      <input type="text" [(ngModel)]="lugar.descripcion" placeholder="Descripción" class="form-control"
+        formControlName="descripcionVal" />
+    </div>
+
+
+    <div class="form-row">
+      <div class="form-group col">
+        <label>Fecha desde:</label>
+        <div class="input-group">
+          <input class="form-control" [(ngModel)]="desde" step="60" type="datetime-local"
+            [max]="hasta < '9999-12-31T23:59' ? hasta : '9999-12-31T23:59'" max='9999-12-31T23:59' value=""
+            formControlName="desdeVal" id="example-datetime-local-input">
+          <button class="btn btn-secondary btn-sm m-2 float-right" (click)="desde = null;">
+            Limpiar
+          </button>
+        </div>
+      </div>
+
+      <div class="form-group col">
+        <label>Fecha hasta:</label>
+        <div class="input-group">
+          <input class="form-control" [(ngModel)]="hasta" type="datetime-local" max="9999-12-31T23:59" [min]="desde"
+            value="" formControlName="hastaVal" id="example-datetime-local-input">
+          <button class="btn btn-secondary btn-sm m-2 float-right" (click)="hasta = null; ">
+            Limpiar
+          </button>
+        </div>
+      </div>
+    </div>
+
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Zona</label>
+          <input [(ngModel)]="lugar.zona" placeholder="Zona" class="form-control" formControlName="zonaVal" />
+        </div>
+
+        <div class="form-group col">
+          <label>Tipo Lugar:*</label>
+          <input type="text" placeholder="TipoLugar" formControlName="tipoLugVal" class="form-control"
+            [(ngModel)]="lugar.tipos_lugare" [ngbTypeahead]="searchTipoLugar" [resultFormatter]="resultTipoLugarFormat"
+            [inputFormatter]="inputTipoLugarFormat" [editable]="false" />
+        </div>
+      </div>
+
+      <div class="form-row">
+
+        <div class="form-group col">
+          <label>Calle:*</label>
+          <input type="text" [(ngModel)]="calle" (ngModelChange)="actualizarLocaclizacion()" placeholder="Calle"
+            class="form-control" formControlName="calleVal" />
+        </div>
+
+        <div class="form-group col">
+          <label>Altura:</label>
+          <input type="number" min="0" [(ngModel)]="altura" (ngModelChange)="actualizarLocaclizacion()"
+            placeholder="Altura" class="form-control" formControlName="alturaVal" />
+        </div>
+
+        <div class="form-group col">
+          <label>Ciudad:*</label>
+          <input type="text" [(ngModel)]="ciudad" (ngModelChange)="actualizarLocaclizacion()" placeholder="Ciudad"
+            class="form-control" formControlName="ciudadVal" />
+        </div>
+      </div>
+
+      <div *ngIf="error"><hr> </div>
+      <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error.error.message}}</div> 
+      <div *ngIf="error"><hr> </div> 
+
+      <div>
+        <button (click)="goBack()" class="btn" style="border-color: black;"
+          style="background-color: lightsteelblue;">Atrás
+        </button>
+        &nbsp;
+        <button (click)="onSubmit()" class="btn btn-primary mr-1" style="border-color: black; background-color: gray;">
+          Guardar
+        </button>
+      </div>
+  </form>
+  <p>(*) Campos obligatorios.</p>
+
+  <!-- <app-toasts aria-live="polite" aria-atomic="true"></app-toasts> -->
+</div>

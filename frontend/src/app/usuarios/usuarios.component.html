@@ -1,0 +1,185 @@
+<h2> Usuarios </h2>
+&nbsp;
+<div class="table-responsive">
+  <hr>
+  <nav ngbNav #nav="ngbNav" class="nav-tabs">
+
+    <!-- Comienzo de pestaña Administradores -->
+    <ng-container ngbNavItem>
+        <a ngbNavLink>Administradores</a>
+        <ng-template ngbNavContent *ngIf="resultsPageRol[0]">
+          <table class="table table-striped table-sm" >
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nombre de usuario</th>
+                <th>Email</th>
+                <th>Nombre/s</th>
+                <th>Apellido/s</th>
+                <th> </th>
+                <th> </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let usuario of resultsPageRol[0].results; index as i">
+                <td>{{ (i + 1) + (size * (currentPageRol[0]-1)) }}</td>
+                <td>{{ usuario.username }}</td>
+                <td>{{ usuario.email }}</td>
+                <td>{{ usuario.persona.name }}</td>
+                <td>{{ usuario.persona.lastname }}</td>
+                <td>
+                  <a routerLink="/usuarios/{{idAdminEncriptados[i]}}" title="Ver usuario"><i class="fa fa-eye"></i></a>
+                </td>
+                <td>
+                  <!-- <a routerLink="/Datosusuario/{{usuario.id}}"><i class="fa fa-table"></i></a> -->
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <nav aria-label="Page navigation example" [hidden]="resultsPageRol[0].count <= 1">
+            <ul class="pagination pagination-centered">
+              <li class="page-item" *ngIf="currentPageRol[0] > 3">
+                <a class="page-link" (click)="showPageRol(-2,0)">1</a>
+              </li>
+              <li class="page-item" *ngIf="currentPageRol[0] > 4">
+                <a class="page-link" (click)="showPageRol(-1,0)">...</a>
+              </li>
+              <li *ngFor="let t of pagesRol[0];" [ngClass]="{true: 'active'}[t+1 === currentPageRol[0]]">
+                <a *ngIf=" t >= ((currentPageRol[0] <= 3) ? 0 :  currentPageRol[0] - 3) && t <= ((currentPageRol[0] <= 3) ? 4:  currentPageRol[0] + 1)" class="page-link" (click)="showPageRol(t + 1,0)"> {{t+1}} </a>
+              </li>
+              <li class="page-item"  *ngIf="resultsPageRol[0].last - 1>currentPageRol[0] + (currentPageRol[0]>3 ? 2 : 5 - currentPageRol[0])">
+                <a class="page-link" (click)="showPageRol(-3,0)">...</a>
+              </li>
+              <li class="page-item"  *ngIf="resultsPageRol[0].last >currentPageRol[0] + (currentPageRol[0]>3 ? 2 : 5 - currentPageRol[0])">
+                <a class="page-link" (click)="showPageRol(-4,0)">{{resultsPageRol[0].last}}</a>
+              </li>
+            </ul>
+          </nav>
+        </ng-template>
+      </ng-container>
+  
+
+    <!-- Comienzo de pestaña Usuarios -->
+    <ng-container ngbNavItem>
+      <a ngbNavLink>Dueños de datos</a>
+      <ng-template ngbNavContent *ngIf="resultsPageRol[1]">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombre de usuario</th>
+                <th>Email</th>
+                <th>Nombre/s</th>
+                <th>Apellido/s</th>
+                <th> </th>
+                <th> </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let usuario of resultsPageRol[1].results; index as i">
+              <td>{{ (i + 1) + (size * (currentPageRol[1]-1)) }}</td>
+              <td>{{ usuario.username }}</td>
+              <td>{{ usuario.email }}</td>
+              <td>{{ usuario.persona.name }}</td>
+              <td>{{ usuario.persona.lastname }}</td>
+              <td>
+                <a routerLink="/usuarios/{{idUsuariosEncriptados[i]}}" title="Ver usuario"><i class="fa fa-eye"></i></a>
+              </td>
+              <td>
+                <a (click)="changeToAdmin(usuario.id)" title="Convertir en Administrador"><i class="fa fa-user-circle-o" style="color: rgb(15, 113, 15);"></i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <nav aria-label="Page navigation example" [hidden]="resultsPageRol[1].count <= 1">
+            <ul class="pagination pagination-centered">
+              <li class="page-item" *ngIf="currentPageRol[1] > 3">
+                <a class="page-link" (click)="showPageRol(-2,1)">1</a>
+              </li>
+              <li class="page-item" *ngIf="currentPageRol[1] > 4">
+                <a class="page-link" (click)="showPageRol(-1,1)">...</a>
+              </li>
+              <li *ngFor="let t of pagesRol[1];" [ngClass]="{true: 'active'}[t+1 === currentPageRol[1]]">
+                <a *ngIf=" t >= ((currentPageRol[1] <= 3) ? 0 :  currentPageRol[1] - 3) && t <= ((currentPageRol[1] <= 3) ? 4:  currentPageRol[1] + 1)" class="page-link" (click)="showPageRol(t + 1,1)"> {{t+1}} </a>
+              </li>
+              <li class="page-item"  *ngIf="resultsPageRol[1].last - 1>currentPageRol[1] + (currentPageRol[1]>3 ? 2 : 5 - currentPageRol[1])">
+                <a class="page-link" (click)="showPageRol(-3,1)">...</a>
+              </li>
+              <li class="page-item"  *ngIf="resultsPageRol[1].last >currentPageRol[1] + (currentPageRol[1]>3 ? 2 : 5 - currentPageRol[1])">
+                <a class="page-link" (click)="showPageRol(-4,1)">{{resultsPageRol[1].last}}</a>
+              </li>
+            </ul>
+          </nav>
+      </ng-template>
+    </ng-container>
+
+    <!-- Comienzo de pestaña Invitados -->
+      <ng-container ngbNavItem>
+        <a ngbNavLink>Invitados</a>
+        <ng-template ngbNavContent *ngIf="resultsPageRol[2]">
+          <table class="table table-striped table-sm">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nombre de usuario</th>
+                <th>Email</th>
+                <th>Nombre/s</th>
+                <th>Apellido/s</th>
+                <th> </th>
+                <th> </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let usuario of resultsPageRol[2].results; index as i">
+                <td>{{ (i + 1) + (size * (currentPageRol[2]-1)) }}</td>
+                <td> {{ usuario.username }}</td> 
+                <td>{{ usuario.email }}</td>
+                <td>{{ usuario.persona.name }}</td>
+                <td>{{ usuario.persona.lastname }}</td>
+                <td>
+                  <a routerLink="/usuarios/{{idInvitadosEncriptados[i]}}"  title="Ver usuario"><i class="fa fa-eye"></i></a>
+                </td>
+                <td>
+                  <a (click)="changeToUser(usuario.id)" title="Validar usuario"><i class="fa fa-check-circle-o" style="color: rgb(15, 113, 15);"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <nav aria-label="Page navigation example" [hidden]="resultsPageRol[2].count <= 1">
+            <ul class="pagination pagination-centered">
+              <li class="page-item" *ngIf="currentPageRol[2] > 3">
+                <a class="page-link" (click)="showPageRol(-2,2)">1</a>
+              </li>
+              <li class="page-item" *ngIf="currentPageRol[2] > 4">
+                <a class="page-link" (click)="showPageRol(-1,2)">...</a>
+              </li>
+              <li *ngFor="let t of pagesRol[2];" [ngClass]="{true: 'active'}[t+1 === currentPageRol[2]]">
+                <a *ngIf=" t >= ((currentPageRol[2] <= 3) ? 0 :  currentPageRol[2] - 3) && t <= ((currentPageRol[2] <= 3) ? 4:  currentPageRol[2] + 1)" class="page-link" (click)="showPageRol(t + 1,2)"> {{t+1}} </a>
+              </li>
+              <li class="page-item"  *ngIf="resultsPageRol[2].last - 1>currentPageRol[2] + (currentPageRol[2]>3 ? 2 : 5 - currentPageRol[2])">
+                <a class="page-link" (click)="showPageRol(-3,2)">...</a>
+              </li>
+              <li class="page-item"  *ngIf="resultsPageRol[2].last >currentPageRol[2] + (currentPageRol[2]>3 ? 2 : 5 - currentPageRol[2])">
+                <a class="page-link" (click)="showPageRol(-4,2)">{{resultsPageRol[2].last}}</a>
+              </li>
+            </ul>
+          </nav>
+        </ng-template>
+      </ng-container>&nbsp;&nbsp;&nbsp;
+
+      <div ngbDropdown>
+          <button class="btn btn-info btn-sm" id= "size"   ngbDropdownToggle>{{size}}</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownFilter">
+    
+            <button ngbDropdownItem id="5" on-click="changeSize(5)">    5   </button>
+            <button ngbDropdownItem id="10" on-click="changeSize(10)">  10  </button>
+            <button ngbDropdownItem id="25" on-click="changeSize(25)">  25  </button>
+            <button ngbDropdownItem id="50" on-click="changeSize(50)">  50  </button>
+    
+          </div>
+        </div>
+    
+  </nav>
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+  &nbsp;
+</div>

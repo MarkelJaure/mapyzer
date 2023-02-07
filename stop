@@ -1,0 +1,1248 @@
+[33mcommit 5ac147bc80d14eb3ff6a78f5959febf14db254c1[m[33m ([m[1;36mHEAD -> [m[1;32mdesarrolloGus[m[33m, [m[1;31morigin/desarrolloGus[m[33m)[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Fri Nov 20 23:32:40 2020 -0300
+
+    Commit 20/11
+
+[33mcommit 4c339f4a897b745fd22aa4355c5223604ad6e147[m
+Merge: 54bc778 ca01bac
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Fri Nov 20 09:29:23 2020 -0300
+
+    Merge branch 'development' into desarrolloGus
+
+[33mcommit 54bc77809fea8da1a093671b75cbb2d912eea3c0[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Thu Nov 19 23:16:16 2020 -0300
+
+    Generacion de link de proyecto propio
+
+[33mcommit ca01bac6f7009c4cc2d2f3bbd59f578ac0e30942[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/development[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mdevelopment[m[33m)[m
+Author: Martin Sebastian <mshailant@gmail.com>
+Date:   Thu Nov 19 22:38:04 2020 -0300
+
+    Agregado Dockerfile y docker-compose.yml para despliegue en producción.
+
+[33mcommit f7072ab8d3cf0a5e3c8dda66891fa02cca0adf56[m[33m ([m[1;31morigin/devMartin[m[33m)[m
+Author: Martin Sebastian <mshailant@gmail.com>
+Date:   Wed Nov 18 19:31:06 2020 -0300
+
+    Se agrego baseUrl como variable de entorno de angular para prod y dev.
+
+[33mcommit edf65b91a6a79f32030b2d377706913fe73d94eb[m
+Merge: 37c354e 636a8a9
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Sun Nov 15 21:32:27 2020 -0300
+
+    Commit despues de merge con Gustavo
+
+[33mcommit 636a8a983aa0c375cacf1beb5e1ad006fafd7d0d[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Sun Nov 15 21:28:45 2020 -0300
+
+    Commit 15/11 pequenios cambios antes de merge
+
+[33mcommit 37c354ebc4dede802872a586565cd4d1fd2629d9[m
+Merge: 84ebbf9 b5e885f
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Sun Nov 15 21:28:44 2020 -0300
+
+    Merge branch 'desarrolloGus' into development
+
+[33mcommit b5e885f708c0f7680f3dc586f3ba9954330ceeae[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Sun Nov 15 21:27:36 2020 -0300
+
+    Commit pre juntada
+
+[33mcommit 191ae3e0a69818580df10a7840daf4b4eaa57c54[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Sun Nov 15 20:54:55 2020 -0300
+
+    Capas raster
+
+[33mcommit 43869e46b40b6316ac29d67a2600aa874031a519[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Sun Nov 15 00:40:14 2020 -0300
+
+    commit  14/11 Primera implementacion de division de proyectos en capas
+
+[33mcommit bebbd18654576b3741ae90cc565446d4859d9338[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Fri Nov 13 14:42:40 2020 -0300
+
+    Commit 13/11 Restriccion seleccion proyectos, visualizacion todos los datos en mapa, pequenio refactoring map-proyecto
+
+[33mcommit 9bbce86a984fc96647fe875963f775b94125e437[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Thu Nov 12 22:47:37 2020 -0300
+
+    Commit 12/11 fin pantalla edicion de tipos de
+
+[33mcommit bbfb09eabe284790a1d57c3515753f1c230f4a13[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Thu Nov 12 17:18:22 2020 -0300
+
+    Commit 12/11 Seleccion proyectos a visualizar, conexion entre componentes
+
+[33mcommit be3008bc4bbe3e024f28695778f171d08b34b7ed[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Thu Nov 12 00:26:18 2020 -0300
+
+    Commit 12/11 Interfaz de carga y modificacion de tipos de
+
+[33mcommit e629579ec73e3c1c0deb595da48c3ab4b3ebe416[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Wed Nov 11 19:48:42 2020 -0300
+
+    Commit 11/11 Refactoring Modal, boton para cambiar de invitado a usuario, y de usuario a administrador
+
+[33mcommit b64eba1f47988c8bb874769d8abb5033e60dd5ab[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Wed Nov 11 16:09:51 2020 -0300
+
+    Commit 11/11 Pantalla visualizacion de un usuario, boton sin funcionalidar validar usuario, correccion fecha slider
+
+[33mcommit dad82887f688743d42788a3636d2bd90301ea810[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Tue Nov 10 19:32:12 2020 -0300
+
+    COmmite 10/11 Pantalla usuarios
+
+[33mcommit 84ebbf960c203478f017653f8f1cac180b79c2f9[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Mon Nov 9 20:32:33 2020 -0300
+
+    Correccion post review
+
+[33mcommit 790747b2c20ad2dceb192893ac1372c428b63c0d[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Mon Nov 9 20:29:24 2020 -0300
+
+    Correciones minimas
+
+[33mcommit 87cb4da7ebcd2143a683d42989f917eb68309503[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Mon Nov 9 16:21:09 2020 -0300
+
+    Commit con correcion
+
+[33mcommit 6e79a9bfccdc8ffdae7785b61d920bc1b1cf5019[m
+Merge: 13e6a20 f03af48
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Mon Nov 9 15:53:59 2020 -0300
+
+    Merge branch 'development' of https://git.fi.mdn.unp.edu.ar/Hailant/mapyzer into development
+
+[33mcommit 13e6a20d085ee90b76bb077f088e3538dcd85d82[m
+Merge: dc78653 a9ced2a
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Mon Nov 9 15:53:40 2020 -0300
+
+    Commit juntada de cosigo 9/11
+
+[33mcommit f03af488ff6b1ac6d4c31a4e0c113dddb65f67fd[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Mon Nov 9 15:52:05 2020 -0300
+
+    commit despues de fusionado con Martin antes de Gustavo
+
+[33mcommit dc7865359f8d861c807a11cb00c62ab566b07c4d[m
+Merge: 6215252 0df61a9
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Mon Nov 9 15:50:42 2020 -0300
+
+    commit despues de fusionado con Martin antes de Gustavo
+
+[33mcommit a9ced2ab6bc5a8e767d3f2363d0a971433df9148[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Mon Nov 9 15:49:41 2020 -0300
+
+    Commit pre juntada codigo
+
+[33mcommit 0df61a949216d4b600567bfc76f2c9614c3cefca[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Mon Nov 9 15:48:35 2020 -0300
+
+    commit antes de merge en dev
+
+[33mcommit 62152523464c5fae03f704aea32e4cdccc8ca1bf[m
+Author: Martin Sebastian <mshailant@gmail.com>
+Date:   Mon Nov 9 15:42:12 2020 -0300
+
+    Cambios
+
+[33mcommit e292b907bd147e0da735aa00b2fdb52a8ac1be12[m
+Merge: 6c93a56 ce234ba
+Author: Martin Sebastian <mshailant@gmail.com>
+Date:   Mon Nov 9 14:11:29 2020 -0300
+
+    Merge branch 'development' into devMartin
+    
+    # Conflicts:
+    #       frontend/src/app/app.module.ts
+    #       frontend/src/app/datos-proyecto/datos-proyecto.component.html
+    #       frontend/src/app/datos-proyecto/datos-proyecto.component.ts
+    #       frontend/src/app/map-proyecto/map-proyecto.component.ts
+    #       frontend/src/app/map/map.component.ts
+    #       frontend/src/app/modal-nuevo-lugar/modal-nuevo-lugar.component.html
+    #       frontend/src/app/modal.service.ts
+
+[33mcommit 6c93a56003b37b71bf37237dc06a941bd1a7a5b5[m
+Author: Martin Sebastian <mshailant@gmail.com>
+Date:   Mon Nov 9 13:43:27 2020 -0300
+
+    modal previsualización de archivos csv
+
+[33mcommit c5b374f13ff6ce06c5b4dea6d280acff3782b666[m
+Author: Martin Sebastian <mshailant@gmail.com>
+Date:   Mon Nov 9 13:36:41 2020 -0300
+
+    Refactoring carga de archivos y se agrego la carga con archivos de esquema 3 y 4
+
+[33mcommit d617daf85d3a6d2c1ec771f9d2589f75cdee4c5b[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Mon Nov 9 01:22:09 2020 -0300
+
+    Commit 09/11 Visualizacion de datos en el mapa a traves del tiempo
+
+[33mcommit db9be409e33d82a3a22bfb90f1a29c789695b658[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Sun Nov 8 15:59:22 2020 -0300
+
+    Commit 07/11 Control de acceso a la pagina de agregar tipos de
+
+[33mcommit ce234ba239bfb604d1dc7fbd6c2d0015f39bbc59[m
+Merge: 7f68a04 0ef8616
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Sun Nov 8 12:35:59 2020 -0300
+
+    Commit despues de merge con gustavo
+
+[33mcommit 7f68a048b5b51963dbdc2fe06ef5449008fbbddb[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Sun Nov 8 15:30:28 2020 -0300
+
+    Commit pre juntada de codigo
+
+[33mcommit 0ef86163fa767e3613bb74e6eed14360c2b52aa2[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Sun Nov 8 12:34:06 2020 -0300
+
+    Commit antes de merge con gustavo
+
+[33mcommit a3d160466ef07bdd35c7c268658b52a7e761e81b[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Sun Nov 8 09:03:09 2020 -0300
+
+    Commit 08/11 Pasaje textos a espaniol, refactoring control de acceso, pasaje de toast a alerts en esquemas
+
+[33mcommit e7637c85ff566e39a138ee5083e2d43de4bccaf0[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Sat Nov 7 22:30:53 2020 -0300
+
+    Commit 07/11
+
+[33mcommit 6c09157ac07c63c303ead03a79605cc710076ffd[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Fri Nov 6 21:00:17 2020 -0300
+
+    Commit 06/11
+
+[33mcommit 117f11d80f6a18eeccc4079ee1501d5d317f5710[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Fri Nov 6 13:56:37 2020 -0300
+
+    commit 06/11 correccion edit proyecto privado, isAdmin(), manejo por creador de proyecto, cambio toast por alert en editProfile, paginado proyectos, texto en mis proyectos
+
+[33mcommit 42d8a46b16d5fc94b090c54becd3495b190aae4c[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Thu Nov 5 14:35:17 2020 -0300
+
+    Commit 05/11 Pestanias proyectos y control de acceso a un proyecto si no eres el creador
+
+[33mcommit 941c656c9671f51c95d1a10b831f1be1b9e6fd00[m
+Merge: 02c1589 234cde8
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Thu Nov 5 13:09:56 2020 -0300
+
+    Commit despues de merge con gustavo
+
+[33mcommit 02c15899991db8777ae909fd5b66222981e85c8d[m
+Merge: 3355dd5 41a3b7d
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Thu Nov 5 15:49:18 2020 -0300
+
+    Merge branch 'desarrolloGus' into development
+
+[33mcommit 41a3b7d76d984553ceee4b1ee1fcdbf584b35423[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Thu Nov 5 15:44:38 2020 -0300
+
+    Commit 5/11 juntada de codigo
+
+[33mcommit 234cde88820a8b29e1f5a7ce4cd74d43b5729d68[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Thu Nov 5 12:02:47 2020 -0300
+
+    commit antes de merge con gustavo
+
+[33mcommit 21bb82a956f8c2d088d840703dc818e7b29575e1[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Wed Nov 4 21:33:19 2020 -0300
+
+    Slider
+
+[33mcommit 5c67c61a62a2451b98b797dc6d2a80b323f71e96[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Wed Nov 4 13:40:18 2020 -0300
+
+    Commit 04/11 Funcionalidad backend editPassword, restricciones isLogged
+
+[33mcommit d92a786c18248183b22c84cb440ef74c03b1576c[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Tue Nov 3 18:36:36 2020 -0300
+
+    Commit 3/11 Funcionalidades a los datos tipos de
+
+[33mcommit 4faf48a3a5d0842a6262915d3bc18e8052e36ee4[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Tue Nov 3 15:12:58 2020 -0300
+
+    commit 03/11 backend editProfile, frontend editPassword
+
+[33mcommit f298c0bccee8fca88aede4152d9b1bf8d0969621[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Tue Nov 3 00:24:51 2020 -0300
+
+    Commit 3/11
+
+[33mcommit 67140f2912cb2f2c00ea2e781d8a37f4c49ea342[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Mon Nov 2 18:02:23 2020 -0300
+
+    fin registrer y login, pantalla y controller editProfile, queda con error en backend.
+
+[33mcommit 09ebf9b3b0441849ed58503caa7f8bb61b262aac[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Mon Nov 2 10:31:44 2020 -0300
+
+    Commit 2/11
+
+[33mcommit e7c1b4e4d82c56385b92ec536778fb865dde034c[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Mon Nov 2 00:10:11 2020 -0300
+
+    Commit 02/11
+
+[33mcommit 066d902f1e56ef5134b488cb23bbdb97d2844672[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Sun Nov 1 20:39:31 2020 -0300
+
+    Commit 01/11, ASignacion correcta de usuario al crear proyecto, mostrar error de no crear proyecto sin usuario, refactoring de las tablas en la BD relacion persona-usuario, controller,routes,service de Persona
+
+[33mcommit f18a171a64bb43abd1f9a4a95552902a303f885e[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Fri Oct 30 19:54:18 2020 -0300
+
+    Commit 30/10, Encriptacion contrasenia, Pantalla y funcion Registrar, tabla persona, generacion del token
+
+[33mcommit dbad6b871a051bbd7eb88ca92d2862d4a9c9e6df[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Thu Oct 29 20:32:06 2020 -0300
+
+    Commit 29/10 Boton toglle password, mejor verificacion user+pasword controller, Pantalla Register, Mejor visualizacion NavBar Sesion
+
+[33mcommit f49b9f1811373cff814c70942219a202bad8e94b[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Thu Oct 29 14:55:04 2020 -0300
+
+    Commit 29/10 Delete request para los datos de un proyecto
+
+[33mcommit aaa99776d0e8c45977db50fa7e7c771a1fdb3d69[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Thu Oct 29 00:33:41 2020 -0300
+
+    Commit 29/10 Interfaz de creacion de tipos trayecto y refactoring
+
+[33mcommit f023d70d424129cd3b3164f1500fc40abfa3f1b3[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Wed Oct 28 21:01:39 2020 -0300
+
+    Commit 28/10 Primera implementacion Login and Logout, prueba de encriptacion password y generacion token, agregadas librerias Bcrypt, jsonwebtoken y key-del en el backend
+
+[33mcommit ab5de4fe775fc6e6c5ffb9172cc335e3c4123242[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Tue Oct 27 20:45:40 2020 -0300
+
+    Commit 27/10 Refactoring paginado, investigacion Login/Singin
+
+[33mcommit 3355dd551e78a9a85c3a6bf56355b180396bfdad[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Mon Oct 26 16:53:59 2020 -0300
+
+    Commit solucion errores validity carga archivo
+
+[33mcommit 27ac778a0c9ee92ea89104f6e60f346626931055[m
+Merge: 69e0268 74eb6b0
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Mon Oct 26 15:34:02 2020 -0300
+
+    Juntada de codigo pre-demo 26/10
+
+[33mcommit 69e026814cfb2b8eefa5105054c4e398093c027c[m
+Merge: 2008079 207ea84
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Mon Oct 26 15:20:14 2020 -0300
+
+    COmmit con cambios de markel y martin
+
+[33mcommit 2008079244be82326dbbce6045f8108f9f3bd3cb[m
+Author: Martin Sebastian <mshailant@gmail.com>
+Date:   Mon Oct 26 06:59:04 2020 -0300
+
+    Agregado carga de archivos esquema 2.
+
+[33mcommit 207ea84775a87107baadee4ec2e699a59922e50b[m
+Merge: 2b29f0c 4ac5a3d
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Sun Oct 25 19:53:57 2020 -0300
+
+    Commit 25/10
+
+[33mcommit 74eb6b066800bebe3a7652da34b99c3c7121c943[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Sun Oct 25 19:48:08 2020 -0300
+
+    Commit 25/10 refactoring
+
+[33mcommit 2b29f0c5bd9eacd0d13dce61668502e200d82a83[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Sun Oct 25 18:39:46 2020 -0300
+
+    Commit 25/10 Refactor quite datepicker obsoleto, mejora paginado antes de merge de martin
+
+[33mcommit 4ac5a3d4f3dec9f7957ceed26ffeff61f21f5813[m
+Author: Martin Sebastian <mshailant@gmail.com>
+Date:   Sun Oct 25 17:57:48 2020 -0300
+
+    Agregado al header de upload file el numero de esquema.
+
+[33mcommit 893096c9354011142dd009ec8c880751d9bebd75[m
+Author: Martin Sebastian <mshailant@gmail.com>
+Date:   Sun Oct 25 17:43:25 2020 -0300
+
+    Se agrego visor de archivos, para los nuevos archivos cargados en el directorio files.
+
+[33mcommit 79a0ae0a0efb0061f6bfa0164e223fff3cb25270[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Sun Oct 25 15:09:51 2020 -0300
+
+    correcion script
+
+[33mcommit 10d9ed9f062434253333698c5fb16b0c44d2f639[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Sun Oct 25 15:08:05 2020 -0300
+
+    Commit 25/10 traduccion de errores al español
+
+[33mcommit 934d23afbac98ca4d3ede9f51eb4dcee8ec0a993[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Sat Oct 24 21:36:14 2020 -0300
+
+    arreglando error en routes
+
+[33mcommit 374a6b4c5c0c141662907836ed0ec2d8de5e0952[m
+Author: Martin Sebastian <mshailant@gmail.com>
+Date:   Sat Oct 24 21:20:35 2020 -0300
+
+    Merge devMartin into Development.
+
+[33mcommit 38aecfec3ca453be2e899862ee0bdf8b8630a891[m
+Merge: b12ceac 1070dde
+Author: Martin Sebastian <mshailant@gmail.com>
+Date:   Sat Oct 24 21:15:11 2020 -0300
+
+    Merge branch 'devMartin' into development
+    
+    # Conflicts:
+    #       frontend/src/app/datos-proyecto/datos-proyecto.component.html
+
+[33mcommit 1070ddee5c00fe7cd0d4d603567c5961a5854f87[m
+Author: Martin Sebastian <mshailant@gmail.com>
+Date:   Sat Oct 24 21:05:38 2020 -0300
+
+    Agregado modulo _alert, y alertas en carga de archivos.
+
+[33mcommit b12ceac40f712c626499ca887624af5ed0cff972[m
+Merge: 5027709 d87a19a
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Sat Oct 24 20:39:16 2020 -0300
+
+    Commit despues de merge con gustavo antes de merge con martin
+
+[33mcommit 50277091f916727ac59e124a9b853eba302d728b[m
+Merge: 9f269c8 d68daf6
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Sat Oct 24 20:20:30 2020 -0300
+
+    commit antes de subir mis cambios, markel
+
+[33mcommit d87a19accc17508b5eab211a8bc40f870a53f950[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Sat Oct 24 20:18:30 2020 -0300
+
+    commit antes de merge con gustavo
+
+[33mcommit d68daf6b04f531ee63063b93c0bd3ba4556e0e47[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Sat Oct 24 19:37:33 2020 -0300
+
+    Commit 24/10 antes de juntar codigo
+
+[33mcommit 31c32d064d6d6b1a6963e8346aaf4fa771c4b8d0[m
+Author: Martin Sebastian <mshailant@gmail.com>
+Date:   Sat Oct 24 01:38:55 2020 -0300
+
+    Agregado subida de archivos en backend y menu pantalla en frontend.
+
+[33mcommit 0e5d57d80659094cc1a651159a3b60238fb1e2b0[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Fri Oct 23 21:50:34 2020 -0300
+
+    Commit 23/10 Refactoring
+
+[33mcommit 4b4f858ad2ebf01a76f3e2bc699a00b9c0aa4edd[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Fri Oct 23 17:58:39 2020 -0300
+
+    commit 23/10 Mejora error cod/validity, dateLocal en esquema1/2, escritura manual fecha
+
+[33mcommit ddeb82c57b48de9b7c3e1411f67dc93aec99df18[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Wed Oct 21 21:22:31 2020 -0300
+
+    Commit 21/10 Sincronizacion, refactoring paginado
+
+[33mcommit 9f269c856ef7b9bb9a87de3a6263cc8d5bb5189f[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Wed Oct 21 18:21:57 2020 -0300
+
+    sdf
+
+[33mcommit a5aa046ec7f2d2d7ed565b86938d83817be8f50a[m
+Merge: d4d69be 665bdbc
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Wed Oct 21 14:49:23 2020 -0300
+
+    Commit despues del merge Markel-Gustavo
+
+[33mcommit 665bdbcae9c1d046c03637f5c2bc24d00674a77c[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Wed Oct 21 14:24:07 2020 -0300
+
+    Comit antes del merge con Gustavos
+
+[33mcommit d4d69beced7a3e54a0354c906037c5d04a288466[m
+Merge: 6fb051b 381b159
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Wed Oct 21 14:21:31 2020 -0300
+
+    Merge branch 'development' of https://git.fi.mdn.unp.edu.ar/Hailant/mapyzer into development
+
+[33mcommit 4f204f4f2342462c691be1384a0259773f8a0a3d[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Tue Oct 20 19:20:59 2020 -0300
+
+    Commit 20/10 Test trayectos, errores codigo/validity en todos los datos, mtest 3 C.distintas/ fechas invalidas zonas
+
+[33mcommit 6fb051bcc2d7e6aad45b19f63b462da3f090d61f[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Mon Oct 19 21:03:26 2020 -0300
+
+    Commit 19/10 Interfaz de carga de tipos zona y peristencia en la BD
+
+[33mcommit 0d07a6a105bf9d12964245fbc425dd54c1a0aab7[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Mon Oct 19 19:36:40 2020 -0300
+
+    Commit 19/10 Boton mostrar coordenadas esquema 3, Mejor implementacion error solapamiento de fechas, Visualizacion trayecto en mapa, Boton limpiar para fecha en esquema 3, creacion archivo test trayecto
+
+[33mcommit 03fb9e37d0f0bf899e4a14682bf31a5dcfda5dcb[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Sun Oct 18 22:57:26 2020 -0300
+
+    Commit 18/10 Interfaz de carga de tipo lugar y visualizacion de iconos con colores en el mapa
+
+[33mcommit 4b89251a82ca420428e4081abcb0115dbe558f85[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Sun Oct 18 21:56:21 2020 -0300
+
+    Commit 18/10, Verificacion almenos 3 coordenadas distintas 'Zonas', Modelo, servicio, controlados Back/Front Trayectos, Interfaz cargar segun esquema 4
+
+[33mcommit 36160fb543b24174d49bf440a0d584937fcc2b28[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Fri Oct 16 21:55:21 2020 -0300
+
+    Commit 16/10 Correccion de forma de mostrar fechas + refactoring
+
+[33mcommit 8b2b7591352a13765acdfce15d6c52117c5237a0[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Fri Oct 16 20:04:56 2020 -0300
+
+    Commit 16/10, Update Zona, Validar horas, Validazion coordenadas Zona
+
+[33mcommit 8ee2485b6e85b3caad5d4e609fd24b11aa3d5182[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Thu Oct 15 16:32:45 2020 -0300
+
+    Commit 15/10 Intrerfaz Agregar zona zompletada, Implementacion verificador, Primera implementacion Agregar. Boton redirigir mapa a tabla y viceversa
+
+[33mcommit b580cef2daa2b2f84f7f8f97628721d4721afa8c[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Wed Oct 14 21:30:07 2020 -0300
+
+    Commit 14/10 interfaz de creacion de proyectos y persistencia en la BD
+
+[33mcommit 918bcbccc119dcf5d94e7f09358278e5b6706cc6[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Wed Oct 14 20:12:16 2020 -0300
+
+    Commit 14/10 Fuera Incluir, Mostrar zonas de proyecto, Primera implementacion pantalla ingresar Zona
+
+[33mcommit 381b159afef88757f40a0840d805971337ef8e1a[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Tue Oct 13 23:14:34 2020 -0300
+
+    Commit solucion error esquema 2 y calles con numeros
+
+[33mcommit 889773d77058b51347fce75c25d45314cb74dee8[m
+Merge: 086321f c1c127e
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Tue Oct 13 15:14:48 2020 -0300
+
+    Merge branch 'development' into desarrolloGus
+
+[33mcommit c1c127e9d2ba6792195e657b439a93237e727403[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Tue Oct 13 14:31:45 2020 -0300
+
+    Commit antes del ultimo merge del sprint 2
+
+[33mcommit 1f015c1bc4e0d44397165390ecb59c1ce4d89382[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Mon Oct 12 22:05:46 2020 -0300
+
+    Commit 12/10 Correccion errores antes de sprint review
+
+[33mcommit 086321f5a262e715af388603e477329da5d3739b[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Mon Oct 12 20:53:34 2020 -0300
+
+    Refactoring
+
+[33mcommit 107e603b1a96329019ef43d89a0019f0347e9184[m
+Merge: 96c40fb 88d52c9
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Mon Oct 12 16:07:54 2020 -0300
+
+    Commit despues de merge Markel-Gustavo
+
+[33mcommit 88d52c9d42248409047ed33e9968f6f629434622[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Mon Oct 12 15:20:22 2020 -0300
+
+    Antes del merge con gustavo
+
+[33mcommit 96c40fb7e0e8bbd100d9fcd35fab2c267c9fde22[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Mon Oct 12 15:16:02 2020 -0300
+
+    Refactoring
+
+[33mcommit f96905e79561d5ca413445aa95f579541b301085[m
+Merge: f0a6601 243d069
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Mon Oct 12 00:24:54 2020 -0300
+
+    Commit 12/10, merge dev, esquema 2
+
+[33mcommit f0a660111cb0c1c06f95d06c1d496b42f6d19c01[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Sun Oct 11 19:52:13 2020 -0300
+
+    asd
+
+[33mcommit a3494a85e37bd04ca8f7ab9100628a30cd1061a0[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Sun Oct 11 18:41:43 2020 -0300
+
+    Commit 11/10 refactoring
+
+[33mcommit 243d069cd7974ed8b3740f44ce35584d6c46cb1f[m
+Author: Martin Sebastian <mshailant@gmail.com>
+Date:   Sat Oct 10 21:51:55 2020 -0300
+
+    Merge Merge devMartin -> Development.
+
+[33mcommit 1f1468092fd14cba1a1b24577180f0b10bc5ffb0[m
+Merge: 06a6171 3120c92
+Author: Martin Sebastian <mshailant@gmail.com>
+Date:   Sat Oct 10 21:47:44 2020 -0300
+
+    Merge branch 'devMartin' into development
+    
+    # Conflicts:
+    #       frontend/package.json
+    #       frontend/src/app/datos-proyecto/datos-proyecto.component.html
+    #       frontend/src/app/datos-proyecto/datos-proyecto.component.ts
+    #       frontend/src/app/lugares-detail/lugares-detail.component.html
+    #       frontend/src/app/lugares-detail/lugares-detail.component.ts
+    #       frontend/src/app/map-proyecto/map-proyecto.component.ts
+
+[33mcommit 3120c92b282c1d7a89b06454d8f3033a626668a0[m
+Author: Martin Sebastian <mshailant@gmail.com>
+Date:   Sat Oct 10 21:17:58 2020 -0300
+
+    Pantalla de esquema 2.
+
+[33mcommit 06a6171fb61d868c266792554bafec093234ccce[m
+Merge: 9925919 c0fcfa1
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Sat Oct 10 17:06:25 2020 -0300
+
+    Sincronizacion 10/10 Markel
+
+[33mcommit 99259190f0417d50974b1716378e0321b5d0e483[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Sat Oct 10 16:31:58 2020 -0300
+
+    Vizualizacion de datos en forma de tabla segun esquema 2
+
+[33mcommit b56938f5c3ae8f938d9960b92aa4ffa6e7dd45d0[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Fri Oct 9 23:38:41 2020 -0300
+
+    Visualizacion de datos en forma de tabla segun esquema 2
+
+[33mcommit c0fcfa100fbde254a493c4d27ac1158b25ba556a[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Fri Oct 9 19:56:13 2020 -0300
+
+    Commit 09/10 Correccion ingresar infinito, visualizar fechas, correccion modificar lat/lng, correccion map-proyecto icono
+
+[33mcommit 05454d92af8171d0d80e1f163a5b8d0ef5be1f0f[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Thu Oct 8 23:52:18 2020 -0300
+
+    Commit 08/10 Primera Busqueda geolocalizacion, -+infinite en tabla, Control de fechas en backend
+
+[33mcommit d1229e2d60745a68d745a6b41f9a2d966138a8c8[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Thu Oct 8 00:14:09 2020 -0300
+
+    as
+
+[33mcommit 230e958de7809b01c568fc2b9df3b50487531baf[m
+Author: Martin Sebastian <mshailant@gmail.com>
+Date:   Thu Oct 8 00:09:28 2020 -0300
+
+    Merge devMartin -> Development. Correcciones.
+
+[33mcommit 81816a2123befa9d47dae0cf241528db6cd12dcc[m
+Merge: 8410e92 4bc6b0a
+Author: Martin Sebastian <mshailant@gmail.com>
+Date:   Wed Oct 7 23:25:27 2020 -0300
+
+    Merge branch 'devMartin' into development
+    
+    # Conflicts:
+    #       backend/api/server/services/ProyectoService.js
+    #       frontend/src/app/datos-proyecto/datos-proyecto.component.html
+    #       frontend/src/app/datos-proyecto/datos-proyecto.component.ts
+    #       frontend/src/app/lugares-detail/lugares-detail.component.html
+    #       frontend/src/app/lugares-detail/lugares-detail.component.ts
+    #       frontend/src/app/lugares/lugares.component.html
+    #       frontend/src/app/models/lugar.ts
+
+[33mcommit 4bc6b0a25b249cc09527c67cd94dadec6fb8fdbc[m
+Author: Martin Sebastian <mshailant@gmail.com>
+Date:   Wed Oct 7 22:43:56 2020 -0300
+
+    Vinculación con proyectos y vista de fechas correctamente.
+
+[33mcommit 8410e921e4d10bd5ffdd825f624a90cb8aa3a9d1[m
+Merge: 1824aa5 4180f8a
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Wed Oct 7 22:26:59 2020 -0300
+
+    Commit 7/10 juntada de codigo
+
+[33mcommit 4180f8ab56b34d9143c5651a43bf1be1a1693271[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Wed Oct 7 22:14:28 2020 -0300
+
+    asd
+
+[33mcommit 1824aa5a3a9d40c134e7d44bfc8351b56d5a4e36[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Wed Oct 7 21:58:12 2020 -0300
+
+    Commit 07/10 Antes del merge
+
+[33mcommit a0f4321da619ad3e71f1ae756dba7d14b3413d85[m
+Author: Martin Sebastian <mshailant@gmail.com>
+Date:   Wed Oct 7 15:27:50 2020 -0300
+
+    Agregado control de ingresos de fechas Frontend
+
+[33mcommit ab4bafe2559ece0609f9a25d7e1aafe7a2a1d47a[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Wed Oct 7 00:39:23 2020 -0300
+
+    Commit 07/10 Visualizacion de lugares de un proyecto en el mapa
+
+[33mcommit 6532f080db422befd17f598a1b1acec906675509[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Tue Oct 6 20:42:25 2020 -0300
+
+    Commit 06/10 Solicitud por fecha de validez, filtro por nombre y fecha
+
+[33mcommit 88a0b7c57cb0e3a3736babba5c3c641694229bad[m
+Author: Martin Sebastian <mshailant@gmail.com>
+Date:   Tue Oct 6 17:54:54 2020 -0300
+
+    Corrección frontend lugares-detail.component
+
+[33mcommit ffcb023758ff18554fc45fc400a638dbd17fd8bf[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Mon Oct 5 20:20:08 2020 -0300
+
+    Commit 05/10 Typeahead tipos lugares
+
+[33mcommit 76f25594dbc34d84e67ca8ad8b773bac10212d88[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Mon Oct 5 00:23:04 2020 -0300
+
+    Refactoring 5/10
+
+[33mcommit cd19d3ed220f352aaf2210843334c10795a1a81b[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Sun Oct 4 23:24:08 2020 -0300
+
+    Refactor
+
+[33mcommit 497eff3bce96c8f4430b416bd8de897392ca7490[m
+Merge: 62c7fff ff9bc53
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Sun Oct 4 22:53:40 2020 -0300
+
+    asd
+
+[33mcommit ff9bc53f5d8d06e03e1b4258d1f61219a1005c24[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Sun Oct 4 22:51:22 2020 -0300
+
+    commit -4/10 antes del merge
+
+[33mcommit 62c7fffcf0ce9ef12b3ba509e26640978876564f[m
+Merge: 4222122 308e406
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Sun Oct 4 22:50:51 2020 -0300
+
+    Juntada de codigo
+
+[33mcommit 308e4060318cd2ea4da19ed615a2fc69f588c7c5[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Sun Oct 4 22:45:20 2020 -0300
+
+    Commit 4/10
+
+[33mcommit 5f0460b7ebd41cf0cc65b9c6bd17a4314305a086[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Sun Oct 4 20:39:01 2020 -0300
+
+    UI Carga de datos según esquema 1
+
+[33mcommit 422212246de074d2017c819dcc23125f3ef0f3f0[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Sun Oct 4 20:36:34 2020 -0300
+
+    Commit 04/10
+
+[33mcommit 226efc7d81310016b1e69e95e5523a46d1f0e39b[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Sun Oct 4 16:33:59 2020 -0300
+
+    UI carga de datos a un proyecto
+
+[33mcommit 2027ce78a31b69e97435f692b4fae53faafec115[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Sat Oct 3 18:37:40 2020 -0300
+
+    COmmit 03/10 Tipos Zonas en mapa, Mas test de zonas, + verificaciones para modificar lugar
+
+[33mcommit 6f700f275f9ed5f6d7633eec6eb3ad272f3c09fd[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Fri Oct 2 01:07:04 2020 -0300
+
+    Commit 2/10 correcciones
+
+[33mcommit e7185abd86c418990f123666fb24d503fcf9569c[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Thu Oct 1 17:24:56 2020 -0300
+
+    Commit 1/10 Modal
+
+[33mcommit 421bffa3c751f7b533eca0ee94f0099daeb3a402[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Thu Oct 1 14:45:36 2020 -0300
+
+    Commit 01/10 Put lugar
+
+[33mcommit e47cb775bb71b4ab9c4c4fabbd91041859ccab86[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Wed Sep 30 20:46:16 2020 -0300
+
+    Commit 30/09 interfaz de carga de datos segun esquema 1
+
+[33mcommit e005d308a0bce0227f03ed1594123289603d7b31[m
+Merge: 4cb2889 0ece154
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Wed Sep 30 14:01:51 2020 -0300
+
+    Merge branch 'development' into desarrolloGus
+
+[33mcommit 4cb28891364f983a1c7d1263532f57e11256933d[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Wed Sep 30 14:01:05 2020 -0300
+
+    Commit 30/09
+
+[33mcommit 0ece15437b2b75edaab1d0cc9a2a7241e13f7b02[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Wed Sep 30 13:45:42 2020 -0300
+
+    Fin tarjeta tabla de datos
+
+[33mcommit 33f0bec7f4954d9f5579388425d4ea2fa3644c6d[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Wed Sep 30 13:44:26 2020 -0300
+
+    Fin tarjeta tabla de datos
+
+[33mcommit 7b94be8a1a58e4b1cf8cbcb55cc22d89eff22e46[m
+Merge: 635be86 3e2eb90
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Wed Sep 30 13:28:55 2020 -0300
+
+    Commit 30/09
+
+[33mcommit 635be8656882e44d236b3f1c17d27a4210ccfb3a[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Wed Sep 30 13:24:33 2020 -0300
+
+    Commit 30/09
+
+[33mcommit 3e2eb90d4e7385ba4dac35226099125e51b37c15[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Wed Sep 30 12:55:21 2020 -0300
+
+    Commit 30/09 lugares proyecto
+
+[33mcommit 2899d0d56d9cdeacbd88a755f7f5583b5f1df098[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Mon Sep 28 21:08:29 2020 -0300
+
+    Commit 28/09
+
+[33mcommit a9fe8e1c46115ddd156eff6f876ed80bc218c048[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Mon Sep 28 19:08:50 2020 -0300
+
+    fin
+
+[33mcommit 4ad2864ea24b953ddd34eddcd174338980a837b6[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Mon Sep 28 16:39:22 2020 -0300
+
+    Commit 28/09
+
+[33mcommit a19dfe7cc7ce9248342b43c2fef67daeeab59fcc[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Mon Sep 28 16:17:56 2020 -0300
+
+    commit final
+
+[33mcommit 6612c0024efa5b02a19fe1e63758b27daf0b3747[m
+Merge: 7b8cd9f f1ecf7c
+Author: Martin Sebastian <mshailant@gmail.com>
+Date:   Mon Sep 28 16:14:49 2020 -0300
+
+    Commit Martin
+
+[33mcommit f1ecf7c8436a27446db896f06edcbece34e6532d[m
+Author: Martin Sebastian <mshailant@gmail.com>
+Date:   Mon Sep 28 15:51:11 2020 -0300
+
+    Commite Martin
+
+[33mcommit 7b8cd9f253cec9209ccbe1563e480e11a8c7e33e[m
+Merge: 8289ce3 2fb61cf
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Mon Sep 28 15:46:31 2020 -0300
+
+    Commit con cambios markel y gustavo
+
+[33mcommit 2fb61cf6e388880573fb2167df6ed88e4b4d216b[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Mon Sep 28 15:37:27 2020 -0300
+
+    sdf
+
+[33mcommit 8289ce35df31f0a6333247778ed80ba82914865e[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Sat Sep 26 22:17:02 2020 -0300
+
+    Verificacion de parametros en POST y mas testing
+
+[33mcommit 400b5c5a04f32645dc42b0c99801065210cbf7e3[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Sat Sep 26 21:36:26 2020 -0300
+
+    Commit 26/09 Test para el insert de Zonas
+
+[33mcommit f170d202461ad152d28fd441705b84f42b4347e4[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Sat Sep 26 18:06:14 2020 -0300
+
+    Search by codigo
+
+[33mcommit 2a8382f373c7f07443681ab7b44ecce77070fd9d[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Thu Sep 24 21:19:16 2020 -0300
+
+    Commit 24/09
+
+[33mcommit 6a5bb77606ed05cd589d5f34b4d6ef7f160c141b[m
+Merge: f6442d1 7b2e4e4
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Thu Sep 24 19:11:35 2020 -0300
+
+    Cambios Markel
+
+[33mcommit f6442d160309f2b0bca9ae64134b7184eecce3f3[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Wed Sep 23 23:59:21 2020 -0300
+
+    Interfaz de carga de datos y refactoring
+
+[33mcommit 7b2e4e4ef31773c1cb78fd8c28efd7cc2901233f[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Wed Sep 23 19:33:45 2020 -0300
+
+    pagina tabla Proyectos
+
+[33mcommit cfb2673a2923dade5caa26897e932fc029dc8e8c[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Wed Sep 23 13:55:53 2020 -0300
+
+    Commit 23/09 paginado Zonas
+
+[33mcommit 225329abfe1a06ab6a2770461e8f85bb56760ba1[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Tue Sep 22 23:11:02 2020 -0300
+
+    Commit 22/09 Insert a la BD a traves de test Cucumber
+
+[33mcommit 4fb09015facce2d7d977f736aa18052adba40b9b[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Tue Sep 22 21:33:54 2020 -0300
+
+    Commit 22/09 modelo proyecto, refactoring front-end zonas
+
+[33mcommit 92d58221eead9b623511ea731b2446038b19ae8b[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Mon Sep 21 23:36:43 2020 -0300
+
+    Commit 21/09 Comienzo de tests con Cucumber
+
+[33mcommit b3318a582967066007e2d977783017dba84e32ec[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Mon Sep 21 20:03:14 2020 -0300
+
+    Primera implementacion no funcional del test
+
+[33mcommit ba39b86623ad683694d7baf739d7455d78e0cd44[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Mon Sep 21 20:01:34 2020 -0300
+
+    Primera implementacion no funcional del test
+
+[33mcommit ad8e8e19e1e4d96b121e79c879356713155caec7[m
+Merge: c23d39f b815f84
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Mon Sep 21 16:07:29 2020 -0300
+
+    Development Gus/Markel
+
+[33mcommit c23d39fc5d8f680c2b6d033ae728f3dba80ce391[m
+Merge: cfcd495 f02cbf4
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Mon Sep 21 15:54:17 2020 -0300
+
+    Commit de Markel
+
+[33mcommit f02cbf4f560cc9ae2b323b425a55b4be86f88e36[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Mon Sep 21 15:41:58 2020 -0300
+
+    commit prueba
+
+[33mcommit b815f84b1c95c824b5ec75457cc129ec55aab2e3[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Mon Sep 21 15:40:20 2020 -0300
+
+    commit antes del push
+
+[33mcommit fe5dab06756c22e21efa6e5709a59406891f53ce[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Sun Sep 20 21:40:32 2020 -0300
+
+    Commit 20/09 Recuperar un dato desde la BD
+
+[33mcommit df3ab8d306dc13d5dd09836c5545cd4627326bf1[m
+Merge: 7a9f62d 88fbadb
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Sat Sep 19 21:20:20 2020 -0300
+
+    Commit 19/09 visualizacion de datos en forma de tabla
+
+[33mcommit 7a0f559b8a677987b294b2bb9fa72f8c48c08d8f[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Sat Sep 19 19:56:07 2020 -0300
+
+    Commit 19/09 style y zonas en forma de tabla
+
+[33mcommit 7a9f62df3c23302b7c428e6baa85b0cee4debbb6[m
+Author: gustavonunez <guscostaf@gmail.com>
+Date:   Sat Sep 19 18:36:48 2020 -0300
+
+    Commit 19/09
+
+[33mcommit 8f51246cce946ee54ffb21690bfccf34d1379e78[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Sat Sep 19 18:08:23 2020 -0300
+
+    a
+
+[33mcommit 7416912d4f0470c8ceca53c73afb64fa0a61b9c5[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Sat Sep 19 18:04:54 2020 -0300
+
+    a
+
+[33mcommit 8b3d7d766efba39ecb7ac066dd433ae50665998e[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Sat Sep 19 17:02:39 2020 -0300
+
+    Consulta a bd por medio de ORM sequelize
+
+[33mcommit 42eb74486759847b499fb91a4e266dd90dbb6fc2[m
+Merge: ada7a79 cfcd495
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Fri Sep 18 18:39:52 2020 -0300
+
+    fusion con development, primer solicitud por zona al servidor
+
+[33mcommit ada7a796cc939fd0cf6e03ae5593bebcfc1a050e[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Wed Sep 16 22:09:41 2020 -0300
+
+    mas zonas, intento de backend
+
+[33mcommit cfcd495d31ee1499960990ee76507ae11da65d27[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Wed Sep 16 19:36:27 2020 -0300
+
+    prueba zonas
+
+[33mcommit 88fbadb1886d2c2a97d4e7df8182a78dbca4fd42[m
+Author: Martin Sebastian <jailant114@gmail.com>
+Date:   Tue Sep 15 23:17:20 2020 -0300
+
+    Eliminado .evn y se agrega .envExample
+
+[33mcommit abe92b8a824dddf52828cda013abc0a1ca202d56[m
+Merge: 7dbd63f 18d3494
+Author: Martin Sebastian <jailant114@gmail.com>
+Date:   Tue Sep 15 23:12:32 2020 -0300
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit bf25ba7b3eb4d0d1a1f5ff54ba6a7c4fb76212c1[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Tue Sep 15 23:11:54 2020 -0300
+
+    Visualizacion de una zona en un mock
+
+[33mcommit 7dbd63fac76dca56eabe67a17eb06f79ba8fde3c[m
+Author: Martin Sebastian <jailant114@gmail.com>
+Date:   Tue Sep 15 23:06:03 2020 -0300
+
+    Error en servidor solucionado.
+
+[33mcommit 18d3494c908216bb66098483e2ccaa16ecee5232[m[33m ([m[1;32mmaster[m[33m)[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Tue Sep 15 16:59:44 2020 -0300
+
+    Mapa web navegable
+
+[33mcommit 6f4c33408f946506be308a45e59c783ccefbfc3d[m
+Author: Martin Sebastian <jailant114@gmail.com>
+Date:   Tue Sep 15 16:30:34 2020 -0300
+
+    Modificado .env
+
+[33mcommit 2a2d3e051784af52926a4717e4f5208170921335[m
+Author: Martin Sebastian <jailant114@gmail.com>
+Date:   Tue Sep 15 16:30:04 2020 -0300
+
+    Modificado .env
+
+[33mcommit e4e0f06fde15b687111684ad84da6ef322602dca[m
+Author: Martin Sebastian <jailant114@gmail.com>
+Date:   Tue Sep 15 16:28:44 2020 -0300
+
+    Modificado README.md
+
+[33mcommit 326a38b33688f3d7931c7def536fa4c0f0a146a8[m
+Merge: 204bc9c ccda928
+Author: Martin Sebastian <jailant114@gmail.com>
+Date:   Tue Sep 15 16:27:38 2020 -0300
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 204bc9cc43f6bcfc3da57bdf46ab9a7456526573[m
+Author: Martin Sebastian <jailant114@gmail.com>
+Date:   Tue Sep 15 16:23:02 2020 -0300
+
+    Infraestructura inicial.
+
+[33mcommit ccda928717a173cb12fa037796e578e461d81950[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Tue Sep 15 15:10:11 2020 -0300
+
+    r
+
+[33mcommit b2be7964e5750364d669aeb32555f06d9a6a0537[m
+Author: JMarkel <markeljaureguibehere@hotmail.com.ar>
+Date:   Tue Sep 15 15:08:54 2020 -0300
+
+    hola
+
+[33mcommit 50fc2ab6b38886bfc2f189f7a1417aa647125548[m
+Author: Martin Hailant <jailant114@gmail.com>
+Date:   Thu Sep 10 11:46:44 2020 -0300
+
+    Initial commit
