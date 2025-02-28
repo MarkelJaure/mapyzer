@@ -5,7 +5,7 @@ Sub-Proyecto de Articulación COVID-19 Chubut
 ## Despliegue sin Docker
 Clonar el proyecto:
 ```
-git clone https://git.fi.mdn.unp.edu.ar/JMarkel/mapyzer.git
+git clone git@github.com:MarkelJaure/mapyzer.git
 ```
 
 ### BackEnd
@@ -55,7 +55,7 @@ git clone https://git.fi.mdn.unp.edu.ar/JMarkel/mapyzer.git
 
 Clonar el proyecto:
 ```
-git clone https://git.fi.mdn.unp.edu.ar/JMarkel/mapyzer.git
+git clone git@github.com:MarkelJaure/mapyzer.git
 ```
 
 - Ingresar al nuevo directorio
