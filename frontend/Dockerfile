@@ -1,43 +1,48 @@
 #############
 ### build ###
 #############
-# base image
-FROM node:12.9.0 as build
+# base image con Node.js 12 (compatible con Angular 7)
+FROM node:12 as build
 
 # set working directory
 WORKDIR /app
 
-# install and cache app dependencies
+# Copiar package.json para instalar dependencias
 COPY package*.json /app/
-RUN npm install -g npm@next
+
+# Instalar npm 6 (compatible con Angular 7)
+RUN npm install -g npm@6
+
+# Instalar Angular CLI
 RUN npm install -g @angular/cli@7.3.9
-RUN npm install @angular-devkit/build-angular
-# add app
+
+# Instalar dependencias con --legacy-peer-deps para evitar errores con versiones antiguas
+RUN npm install --legacy-peer-deps
+
+# Copiar todo el código fuente
 COPY . /app
 
-# generate build
+# Generar el build para producción
 RUN ng build --output-path=dist --prod
-#RUN ng build --configuration=production
-#RUN ng build --configuration=testing
-
 
 ############
 ### prod ###
 ############
 
-# base image
+# Usar nginx como servidor web
 FROM nginx:1.18.0
 
+# Configurar el directorio de trabajo
 WORKDIR /app
 
-# copy artifact build from the 'build environment'
+# Copiar la configuración de Nginx
 COPY nginx.conf /etc/nginx/nginx.conf
+
+# Copiar el build generado al directorio de Nginx
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# expose port 80
+# Exponer puerto 80
 EXPOSE 80
 
-# run nginx
+# Correr nginx
 CMD ["nginx", "-g", "daemon off;"]
-#CMD ["npm", "start"]
-
