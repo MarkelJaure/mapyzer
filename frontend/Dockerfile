@@ -7,16 +7,16 @@ WORKDIR /app
 
 COPY package*.json /app/
 
-# Limpiar cache y evitar errores de dependencias
 RUN npm cache clean --force
-RUN npm install -g npm@6
-RUN npm install --legacy-peer-deps --production
+RUN npm install --legacy-peer-deps
+RUN npm install @angular/cli@7.3.9 --legacy-peer-deps
+RUN npm cache clean --force
 
 COPY . /app
 
 ENV NODE_OPTIONS=--max_old_space_size=512
 
-RUN npx ng build --output-path=dist --configuration=production
+RUN ./node_modules/.bin/ng build --output-path=dist --configuration=production
 
 ############
 ### prod ###
